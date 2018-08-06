@@ -1,0 +1,138 @@
+//Defaults/Constants
+$gray : rgb(51, 51, 51);
+$blue : rgb(79, 134, 242);
+$fontMain : 'Work Sans', sans-serif;
+$fontSize : 14px;
+$fontNav : 'Source Sans Pro', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700|Work+Sans:200,300,400,500,600,700');
+
+//Default DOM elements
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: white;
+    color: $gray;
+    font-family: $fontMain;
+    font-size: $fontSize;
+    font-weight: 400;
+}
+
+a
+{
+    font-weight: 500;
+    text-decoration: none;
+    color: $blue;
+}
+
+a:hover
+{
+    color: darken($blue, 20%);
+}
+
+//Main elements
+#grid
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#grid > :nth-child(2)
+{
+    flex-grow: 1;
+}
+
+//Element styling
+#navbar
+{
+    display: flex;
+    align-items: center;
+    height: 48px;
+    background: $gray;
+    font-family: $fontNav;
+    color: white;
+}
+
+#navbar > span > a
+{
+    color: white;
+}
+
+#navbar > span > a:hover
+{
+    color: darken(white, 25%);
+}
+
+#navbar > span
+{
+    padding: 0px 16px;
+}
+
+#navbar > div
+{
+    margin-left: auto;
+    margin-right: 16px;
+}
+
+#footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    border-top: 1px dotted lighten($gray, 45%);
+}
+
+#footer > span > a
+{
+    color: lighten($gray, 45%);
+}
+
+#footer > span > a:hover
+{
+    color: lighten($gray, 20%);
+}
+
+
+//Page-specific styling
+#landing-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#landing-container > span:nth-of-type(1)
+{
+    font-size: $fontSize * 4;
+    font-weight: 200;
+}
+
+#landing-container > span:nth-of-type(2)
+{
+    padding: 8px 8px 16px 8px;
+}
+
+#landing-navbar > span
+{
+    padding: 0px 16px;
+    font-family: $fontNav;
+}
+
+#landing-navbar > span:not(:last-of-type)
+{
+    border-right: 1px dotted lighten($gray, 50%);
+}
