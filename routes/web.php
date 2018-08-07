@@ -11,5 +11,4 @@
 |
 */
 
-Route::view('/', 'pages/landing');
-Route::view('/home', 'pages/home');
+Route::view('/', 'pages/blog');
