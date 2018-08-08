@@ -11,4 +11,8 @@
 |
 */
 
-Route::view('/', 'pages/blog');
+use Carbon\Carbon;
+
+Route::view('/', 'pages/blog', ['date' => Carbon::now()->format('jS F Y')]);
+
+Route::view('/playground', 'pages/__playground');

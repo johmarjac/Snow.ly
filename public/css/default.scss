@@ -1,7 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Quicksand:300,400,500,700');
 
+$gray: rgb(36, 39, 43);
+$green: rgb(47, 178, 35);
+$red: rgb(204, 61, 61);
+$purple: rgb(120, 61, 204);
+$yellow: rgb(229, 208, 45);
+$orange: rgb(229, 137, 45);
+$blue: rgb(61, 108, 204);
+
 $fontMain: 'Nunito', sans-serif;
 $fontAlt: 'Quicksand', sans-serif;
+$fontTags: 'Roboto Mono', monospace;
+$fontSize: 16px;
+
+/*
+
+    Styling for DOM elements
+
+*/
 
 *
 {
@@ -10,7 +26,432 @@ $fontAlt: 'Quicksand', sans-serif;
 
 body
 {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     padding: 0;
     margin: 0;
     font-family: $fontMain;
+    font-size: $fontSize;
+    line-height: $fontSize;
+    font-weight: 400;
+    color: $gray;
+}
+
+a, a:hover
+{
+    color: $blue;
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: saturate($blue, 50%);
+}
+
+p
+{
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+form
+{
+    padding: 32px; //temp
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form > *//temp
+{
+    margin-bottom: 32px;
+}
+
+input
+{
+    font-family: $fontMain;
+    font-size: $fontSize;
+    line-height: $fontSize;
+}
+
+input[type='text'], input[type='email'], input[type='password'], input[type='number']
+{
+    min-width: 0;
+    color: $gray;
+    border: 1px solid lighten($blue, 32%);
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 4px;
+}
+
+input[type='button'], input[type='submit'], button
+{
+    cursor: pointer;
+    text-shadow: 0px 1px darken($gray, 25%);
+    padding: 6px 12px;
+    background: linear-gradient(to top, $gray 0%, lighten($gray, 10%) 90%);
+    border: 1px solid darken($gray, 10%);
+    color: white;
+    border-radius: 3px;
+}
+
+input[type='button']:hover, button:hover
+{
+    background: linear-gradient(to top, darken($gray, 5%) 0%, lighten($gray, 5%) 90%);
+    border: 1px solid darken($gray, 15%);
+}
+
+.button.blue
+{
+    text-shadow: 0px 1px darken($blue, 25%);
+    background: linear-gradient(to top, $blue 0%, lighten($blue, 10%) 90%);
+    border: 1px solid darken($blue, 10%);
+}
+
+.button.blue:hover
+{
+    background: linear-gradient(to top, darken($blue, 5%) 0%, lighten($blue, 5%) 90%);
+    border: 1px solid darken($blue, 15%);
+}
+
+input[type='submit'], .button.green
+{
+    text-shadow: 0px 1px darken($green, 25%);
+    background: linear-gradient(to top, $green 0%, lighten($green, 10%) 90%);
+    border: 1px solid darken($green, 10%);
+}
+
+input[type='submit']:hover, .button.green:hover
+{
+    background: linear-gradient(to top, darken($green, 5%) 0%, lighten($green, 5%) 90%);
+    border: 1px solid darken($green, 15%);
+}
+
+.button.red
+{
+    text-shadow: 0px 1px darken($red, 25%);
+    background: linear-gradient(to top, $red 0%, lighten($red, 10%) 90%);
+    border: 1px solid darken($red, 10%);
+}
+
+.button.red:hover
+{
+    background: linear-gradient(to top, darken($red, 5%) 0%, lighten($red, 5%) 90%);
+    border: 1px solid darken($red, 15%);
+}
+
+.button.yellow
+{
+    color: black;
+    text-shadow: none;
+    background: linear-gradient(to top, $yellow 0%, lighten($yellow, 10%) 90%);
+    border: 1px solid darken($yellow, 10%);
+}
+
+.button.yellow:hover
+{
+    background: linear-gradient(to top, darken($yellow, 5%) 0%, lighten($yellow, 5%) 90%);
+    border: 1px solid darken($yellow, 15%);
+}
+
+.button.orange
+{
+    text-shadow: 0px 1px darken($orange, 25%);
+    background: linear-gradient(to top, $orange 0%, lighten($orange, 10%) 90%);
+    border: 1px solid darken($orange, 10%);
+}
+
+.button.orange:hover
+{
+    background: linear-gradient(to top, darken($orange, 5%) 0%, lighten($orange, 5%) 90%);
+    border: 1px solid darken($orange, 15%);
+}
+
+.button.purple
+{
+    text-shadow: 0px 1px darken($purple, 25%);
+    background: linear-gradient(to top, $purple 0%, lighten($purple, 10%) 90%);
+    border: 1px solid darken($purple, 10%);
+}
+
+.button.purple:hover
+{
+    background: linear-gradient(to top, darken($purple, 5%) 0%, lighten($purple, 5%) 90%);
+    border: 1px solid darken($purple, 15%);
+}
+
+#input-group
+{
+    display: flex;
+    overflow: hidden;
+}
+
+#input-group > *:not(:first-child):not(:last-child)
+{
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+#input-group > *:first-child
+{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#input-group > *:last-child
+{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#input-group > input:first-child
+{
+    border-right: none;
+}
+
+#input-group > input:last-child
+{
+    border-left: none;
+}
+
+#input-group-label
+{
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    color: $blue;
+    background: lighten($blue, 42%);
+    border: 1px solid lighten($blue, 32%);
+    border-radius: 3px;
+}
+
+/*
+
+    Styling for default elements
+
+*/
+
+#nav
+{
+    display: flex;
+    align-items: center;
+    padding: 32px 20vw;
+    font-family: $fontAlt;
+}
+
+#nav-logo
+{
+    display: flex;
+    align-items: center;
+    font-size: $fontSize * 1.5;
+    line-height: $fontSize * 1.5;
+    font-weight: 300;
+}
+
+#nav-logo img
+{
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+
+#nav-search
+{
+    width: 250px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+#nav-menu
+{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+#nav-menu > span
+{
+    margin-left: 32px;
+}
+
+#content
+{
+    flex-grow: 1;
+    padding: 24px 20vw;
+}
+
+#footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 20vw;
+}
+
+#footer a
+{
+    color: lighten($gray, 50%);
+}
+
+#footer a:hover
+{
+    color: darken($gray, 50%);
+}
+
+/*
+
+    Styling for pages
+
+*/
+
+#blog
+{
+    display: flex;
+}
+
+#blog-posts
+{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    overflow-x: hidden;
+}
+
+#blog-sidepanel
+{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 1*33%;
+    margin-left: 16px;
+    padding-left: 16px;
+    align-items: flex-end;
+    border-left: 1px solid lighten($gray, 70%);
+}
+
+#blog-post
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 64px;
+    border: 1px solid lighten($gray, 70%);
+    border-radius: 3px;
+}
+
+#blog-post-header
+{
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    line-height: 24px;
+}
+
+#blog-post-header-title
+{
+    color: $purple;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: $fontSize * 1.5;
+}
+
+#blog-post-header-author
+{
+    display: flex;
+    align-items: center;
+    font-size: $fontSize;
+    margin-left: auto;
+}
+
+#blog-post-header-author img
+{
+    width: 26px;
+    height: 26px;
+    border-radius: 2px;
+    image-rendering: pixelated;
+}
+
+#blog-post-header-author a
+{
+    margin-right: 8px;
+}
+
+#blog-post-text
+{
+    padding: 16px;
+    line-height: $fontSize * 1.5;
+}
+
+#blog-post-footer
+{
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+}
+
+#blog-post-footer-date
+{
+    font-size: 14px;
+    color: lighten($gray, 40%);
+}
+
+#blog-post-footer-tags
+{
+    display: flex;
+    margin-left: auto;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+#blog-post-footer-tags > #tag
+{
+    margin-left: 4px;
+}
+
+#blog-post:not(:last-of-type)
+{
+    margin-bottom: 32px;
+}
+
+/*
+
+    Styling for standalone components
+
+*/
+
+#tag
+{
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    line-height: 10px;
+    border-radius: 3px;
+    padding: 4px 8px;
+    background: $blue;
+    text-shadow: 0px 1px darken($blue, 50%);
+    color: white;
+}
+
+#tag:hover
+{
+    background: saturate($blue, 50%);
+}
+
+#tag > i
+{
+    color: white;
+    font-size: 6px;
+}
+
+#tag > a
+{
+    margin-left: 4px;
+    color: inherit;
 }
