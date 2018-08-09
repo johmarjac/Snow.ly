@@ -13,7 +13,7 @@
                 @slot('tags')
                     @for ($j=0; $j < 5; $j++)
                         @component('components/tag')
-                            @slot('tag', 'Tag ' . $j)
+                            @slot('tag', 'csharp ' . $j)
                         @endcomponent
                     @endfor
                 @endslot
@@ -21,8 +21,7 @@
         @endfor
     </div>
     <div id="blog-sidepanel">
-        <span></span>
-        <span>tagcloud</span>
+        <form action=""></form>
     </div>
 </div>
 @endsection

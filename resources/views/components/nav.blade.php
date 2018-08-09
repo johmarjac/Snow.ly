@@ -1,12 +1,14 @@
 <div id="nav">
     <div id="nav-logo">
-        <img src="temporary_logo.png"/><span>Snow.ly</span>
+        <span>Snow.ly</span>
     </div>
     <div id="nav-search">
-        <div id="input-group">
-            <input type="text">
-            <button class="button blue">Search</button>
-        </div>
+        <form action="" method="GET">
+            <div id="input-group">
+                <button class="button blue"><i class="fas fa-search"></i></button>
+                <input type="text"/>
+            </div>
+        </form>
     </div>
     <div id="nav-menu">
         <span><a href="#">Blog</a></span>
