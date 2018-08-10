@@ -5,8 +5,8 @@
     <div id="nav-search">
         <form action="" method="GET">
             <div id="input-group">
+                <input type="text" name="search"/>
                 <button class="button blue"><i class="fas fa-search"></i></button>
-                <input type="text"/>
             </div>
         </form>
     </div>

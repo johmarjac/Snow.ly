@@ -39,6 +39,11 @@
             <input type="radio">
             <input type="checkbox">
             <input type="submit">
+            <select>
+                <option>One</option>
+                <option>One</option>
+                <option>One</option>
+            </select>
         </form>
     </body>
 </html>

@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Quicksand:300,400,500,700|Roboto+Mono:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Quicksand:300,400,500,700|Inconsolata:400,700');
 
+//Color palette
 $gray: rgb(36, 39, 43);
-$green: rgb(30, 153, 50);
 $red: rgb(204, 61, 61);
-$purple: rgb(120, 61, 204);
+$green: rgb(30, 153, 50);
+$blue: rgb(61, 108, 204);
 $yellow: rgb(229, 208, 45);
 $orange: rgb(229, 137, 45);
-$blue: rgb(61, 108, 204);
+$purple: rgb(120, 61, 204);
 
+//Fonts
 $fontMain: 'Nunito', sans-serif;
 $fontAlt: 'Quicksand', sans-serif;
-$fontTiny: 'Roboto Mono', monospace;
+$fontTiny: 'Inconsolata', monospace;
 $fontSize: 16px;
 
 /*
@@ -38,15 +40,15 @@ body
     color: $gray;
 }
 
-a, a:hover
+a
 {
     color: $blue;
     text-decoration: none;
-}
 
-a:hover
-{
-    color: saturate($blue, 50%);
+    &:hover
+    {
+        color: saturate($blue, 50%);
+    }
 }
 
 p
@@ -55,22 +57,13 @@ p
     white-space: pre-wrap;
 }
 
-form
+input[type='text'], input[type='email'], input[type='password'], input[type='number'], select
 {
-    flex-grow: 1;
-}
-
-input
-{
+    width: 100%;
     font-family: $fontMain;
     font-size: $fontSize;
     line-height: $fontSize;
-}
-
-input[type='text'], input[type='email'], input[type='password'], input[type='number']
-{
     min-width: 0;
-    flex-grow: 1;
     color: $gray;
     border: 1px solid lighten($blue, 32%);
     border-radius: 3px;
@@ -80,6 +73,9 @@ input[type='text'], input[type='email'], input[type='password'], input[type='num
 
 input[type='button'], input[type='submit'], button
 {
+    font-family: $fontMain;
+    font-size: 12px;
+    line-height: 12px;
     cursor: pointer;
     text-shadow: 0px 1px darken($gray, 25%);
     padding: 6px 12px;
@@ -87,12 +83,12 @@ input[type='button'], input[type='submit'], button
     border: 1px solid darken($gray, 10%);
     color: white;
     border-radius: 3px;
-}
 
-input[type='button']:hover, button:hover
-{
-    background: linear-gradient(to top, desaturate($gray, 5%) 0%, saturate($gray, 5%) 90%);
-    border: 1px solid darken($gray, 15%);
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($gray, 5%) 0%, saturate($gray, 5%) 90%);
+        border: 1px solid darken($gray, 15%);
+    }
 }
 
 .button.blue
@@ -100,25 +96,27 @@ input[type='button']:hover, button:hover
     text-shadow: 0px 1px darken($blue, 25%);
     background: linear-gradient(to top, $blue 0%, lighten($blue, 10%) 90%);
     border: 1px solid darken($blue, 10%);
+
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($blue, 5%) 0%, saturate($blue, 5%) 90%);
+        border: 1px solid darken($blue, 15%);
+    }
 }
 
-.button.blue:hover
-{
-    background: linear-gradient(to top, desaturate($blue, 5%) 0%, saturate($blue, 5%) 90%);
-    border: 1px solid darken($blue, 15%);
-}
+.button.blue
 
 input[type='submit'], .button.green
 {
     text-shadow: 0px 1px darken($green, 25%);
     background: linear-gradient(to top, $green 0%, lighten($green, 10%) 90%);
     border: 1px solid darken($green, 10%);
-}
 
-input[type='submit']:hover, .button.green:hover
-{
-    background: linear-gradient(to top, desaturate($green, 5%) 0%, saturate($green, 5%) 90%);
-    border: 1px solid darken($green, 15%);
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($green, 5%) 0%, saturate($green, 5%) 90%);
+        border: 1px solid darken($green, 15%);
+    }
 }
 
 .button.red
@@ -126,12 +124,12 @@ input[type='submit']:hover, .button.green:hover
     text-shadow: 0px 1px darken($red, 25%);
     background: linear-gradient(to top, $red 0%, lighten($red, 10%) 90%);
     border: 1px solid darken($red, 10%);
-}
 
-.button.red:hover
-{
-    background: linear-gradient(to top, desaturate($red, 5%) 0%, saturate($red, 5%) 90%);
-    border: 1px solid darken($red, 15%);
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($red, 5%) 0%, saturate($red, 5%) 90%);
+        border: 1px solid darken($red, 15%);
+    }
 }
 
 .button.yellow
@@ -140,12 +138,12 @@ input[type='submit']:hover, .button.green:hover
     text-shadow: none;
     background: linear-gradient(to top, $yellow 0%, lighten($yellow, 10%) 90%);
     border: 1px solid darken($yellow, 10%);
-}
 
-.button.yellow:hover
-{
-    background: linear-gradient(to top, desaturate($yellow, 5%) 0%, saturate($yellow, 5%) 90%);
-    border: 1px solid darken($yellow, 15%);
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($yellow, 5%) 0%, saturate($yellow, 5%) 90%);
+        border: 1px solid darken($yellow, 15%);
+    }
 }
 
 .button.orange
@@ -153,12 +151,12 @@ input[type='submit']:hover, .button.green:hover
     text-shadow: 0px 1px darken($orange, 25%);
     background: linear-gradient(to top, $orange 0%, lighten($orange, 10%) 90%);
     border: 1px solid darken($orange, 10%);
-}
 
-.button.orange:hover
-{
-    background: linear-gradient(to top, desaturate($orange, 5%) 0%, saturate($orange, 5%) 90%);
-    border: 1px solid darken($orange, 15%);
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($orange, 5%) 0%, saturate($orange, 5%) 90%);
+        border: 1px solid darken($orange, 15%);
+    }
 }
 
 .button.purple
@@ -166,54 +164,62 @@ input[type='submit']:hover, .button.green:hover
     text-shadow: 0px 1px darken($purple, 25%);
     background: linear-gradient(to top, $purple 0%, lighten($purple, 10%) 90%);
     border: 1px solid darken($purple, 10%);
-}
 
-.button.purple:hover
-{
-    background: linear-gradient(to top, desaturate($purple, 5%) 0%, saturate($purple, 5%) 90%);
-    border: 1px solid darken($purple, 15%);
+    &:hover
+    {
+        background: linear-gradient(to top, desaturate($purple, 5%) 0%, saturate($purple, 5%) 90%);
+        border: 1px solid darken($purple, 15%);
+    }
 }
 
 #input-group
 {
     display: flex;
-    flex-grow: 1;
-    overflow: hidden;
+
+    input:first-child, select:first-child
+    {
+        border-right: none;
+    }
+
+    input:last-child, select:last-child
+    {
+        border-left: none;
+    }
 }
 
-#input-group > *:not(:first-child):not(:last-child)
+//All non-label elements in between
+#input-group > *:not(#input-group-label):not(:first-child):not(:last-child)
 {
     border-left: none;
     border-right: none;
     border-radius: 0;
 }
 
+//All labels in between
+#input-group-label:not(:first-child):not(:last-child)
+{
+    border-radius: 0;
+}
+
+//First element
 #input-group > *:first-child
 {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
+//Last element
 #input-group > *:last-child
 {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-#input-group > input:first-child
-{
-    border-right: none;
-}
-
-#input-group > input:last-child
-{
-    border-left: none;
-}
-
 #input-group-label
 {
-    font-size: 16px;
-    font-weight: 300;
+    font-family: $fontMain;
+    font-size: 12px;
+    line-height: 12px;
     display: flex;
     align-items: center;
     padding: 6px;
@@ -251,8 +257,12 @@ input[type='submit']:hover, .button.green:hover
     width: 250px;
     overflow: hidden;
     display: flex;
-    align-items: center;
     margin-left: auto;
+
+    > form
+    {
+        flex-grow: 1;
+    }
 }
 
 #nav-menu
@@ -260,11 +270,11 @@ input[type='submit']:hover, .button.green:hover
     display: flex;
     align-items: center;
     font-weight: 700;
-}
 
-#nav-menu > span
-{
-    margin-left: 32px;
+    > span
+    {
+        margin-left: 32px;
+    }
 }
 
 #content
@@ -279,16 +289,16 @@ input[type='submit']:hover, .button.green:hover
     justify-content: center;
     align-items: center;
     padding: 24px 20vw;
-}
 
-#footer a
-{
-    color: lighten($gray, 50%);
-}
+    > a
+    {
+        color: lighten($gray, 50%);
 
-#footer a:hover
-{
-    color: darken($gray, 50%);
+        &:hover
+        {
+            color: darken($gray, 50%);
+        }
+    }
 }
 
 /*
@@ -308,6 +318,11 @@ input[type='submit']:hover, .button.green:hover
     flex-direction: column;
     flex-grow: 2;
     overflow-x: hidden;
+
+    #blog-post:not(:last-of-type)
+    {
+        margin-bottom: 32px;
+    }
 }
 
 #blog-sidepanel
@@ -319,8 +334,12 @@ input[type='submit']:hover, .button.green:hover
     flex-basis: 1*33%;
     margin-left: 16px;
     padding-left: 16px;
-    align-items: flex-end;
     border-left: 1px solid lighten($gray, 70%);
+
+    > *:not(:last-child)
+    {
+        margin-bottom: 8px;
+    }
 }
 
 #blog-post
@@ -334,6 +353,7 @@ input[type='submit']:hover, .button.green:hover
 
 #blog-post-header
 {
+    border-bottom: 1px solid lighten($gray, 70%);
     display: flex;
     align-items: flex-start;
     padding: 16px;
@@ -342,7 +362,6 @@ input[type='submit']:hover, .button.green:hover
 
 #blog-post-header-title
 {
-    color: $purple;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -355,19 +374,19 @@ input[type='submit']:hover, .button.green:hover
     align-items: center;
     font-size: $fontSize;
     margin-left: auto;
-}
 
-#blog-post-header-author img
-{
-    width: 26px;
-    height: 26px;
-    border-radius: 2px;
-    image-rendering: pixelated;
-}
+    > img
+    {
+        width: 26px;
+        height: 26px;
+        border-radius: 2px;
+        image-rendering: pixelated;
+    }
 
-#blog-post-header-author a
-{
-    margin-right: 8px;
+    > a
+    {
+        margin-right: 8px;
+    }
 }
 
 #blog-post-text
@@ -395,16 +414,11 @@ input[type='submit']:hover, .button.green:hover
     margin-left: auto;
     flex-wrap: wrap;
     flex-direction: row-reverse;
-}
 
-#blog-post-footer-tags > #tag
-{
-    margin-left: 4px;
-}
-
-#blog-post:not(:last-of-type)
-{
-    margin-bottom: 32px;
+    > #tag
+    {
+        margin-left: 4px;
+    }
 }
 
 /*
@@ -417,28 +431,28 @@ input[type='submit']:hover, .button.green:hover
 {
     display: inline-flex;
     align-items: center;
-    font-size: 10px;
+    font-size: 12px;
     font-family: $fontTiny;
     line-height: 12px;
     border-radius: 3px;
     padding: 4px 8px;
     background: $blue;
     color: white;
-}
 
-#tag:hover
-{
-    background: saturate($blue, 50%);
-}
+    &:hover
+    {
+        background: saturate($blue, 50%);
+    }
 
-#tag > i
-{
-    color: white;
-    font-size: 6px;
-}
+    > i
+    {
+        color: white;
+        font-size: 6px;
+    }
 
-#tag > a
-{
-    margin-left: 4px;
-    color: inherit;
+    > a
+    {
+        margin-left: 4px;
+        color: inherit;
+    }
 }

@@ -21,7 +21,25 @@
         @endfor
     </div>
     <div id="blog-sidepanel">
-        <form action=""></form>
+        <form action="">
+            <div id="input-group">
+                <div id="input-group-label">
+                    Sort
+                </div>
+                <select name="order">
+                    <option value="ascending">Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+                <div id="input-group-label">
+                    by
+                </div>
+                <select name="by">
+                    <option value="">Date</option>
+                    <option value="">Title</option>
+                    <option value="">Tags</option>
+                </select>
+            </div>
+        </form>
     </div>
 </div>
 @endsection
