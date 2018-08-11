@@ -16,3 +16,5 @@ use Carbon\Carbon;
 Route::view('/', 'pages/blog', ['date' => Carbon::now()->format('jS F Y')]); // date temporary for tests obviously
 
 Route::view('/articles', 'pages/articles', ['date' => Carbon::now()->format('jS F Y')]);
+
+Route::view('/projects', 'pages/projects', ['date' => Carbon::now()->format('jS F Y')]);

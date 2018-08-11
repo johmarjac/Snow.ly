@@ -5,14 +5,14 @@
         <form action="">
             <div id="input-group">
                 <div id="input-group-label">
-                    Sort
+                    <span>Sort</span>
                 </div>
                 <select name="order">
                     <option value="ascending">ascending</option>
                     <option value="descending">descending</option>
                 </select>
                 <div id="input-group-label">
-                    by
+                    <span>by</span>
                 </div>
                 <select id="test" name="by">
                     <option value="">date</option>
@@ -24,7 +24,7 @@
         <form action="" class="flexitem-right">
             <div id="input-group">
                 <div id="input-group-label">
-                    Category
+                    <span>Category</span>
                 </div>
                 <select name="category">
                     <option value="*">*</option>
@@ -39,7 +39,7 @@
             @component('components/articles/article')
                 @slot('title', 'Article Title')
                 @slot('image', 'https://i.pinimg.com/originals/af/bc/21/afbc21512376546968e281a61d47260b.jpg')
-                @slot('description', 'Example description for an article.')
+                @slot('description', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint qui, labore, aspernatur nemo autem nisi cumque, suscipit, ipsa et voluptatem quibusdam harum necessitatibus incidunt! Repellat quas dignissimos nulla aut?')
             @endcomponent
         @endfor
     </div>

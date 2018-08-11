@@ -13,7 +13,7 @@
     <div id="nav-menu">
         <span><a href="/"><i class="far fa-comment-dots"></i> Blog</a></span>
         <span><a href="/articles"><i class="fas fa-paperclip"></i> Articles</a></span>
-        <span><a href="#"><i class="far fa-clipboard"></i> Projects</a></span>
+        <span><a href="/projects"><i class="far fa-clipboard"></i> Projects</a></span>
         <span><a href="#"><i class="far fa-address-card"></i> About</a></span>
         <span><a href="#"><i class="far fa-envelope"></i> Contact</a></span>
     </div>

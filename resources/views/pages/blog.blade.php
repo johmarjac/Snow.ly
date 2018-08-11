@@ -21,14 +21,14 @@
         <form action="">
             <div id="input-group">
                 <div id="input-group-label">
-                    Sort
+                    <span>Sort</span>
                 </div>
                 <select name="order">
                     <option value="ascending">ascending</option>
                     <option value="descending">descending</option>
                 </select>
                 <div id="input-group-label">
-                    by
+                    <span>by</span>
                 </div>
                 <select id="test" name="by">
                     <option value="">date</option>
