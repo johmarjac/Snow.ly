@@ -38,6 +38,7 @@ body
     line-height: $fontSize;
     font-weight: 400;
     color: $gray;
+    -webkit-font-smoothing: antialiased;
 }
 
 a
@@ -54,81 +55,105 @@ a
 p
 {
     margin: 0;
-    white-space: pre-wrap;
+    white-space: pre-line;
 }
 
-input[type='text'], input[type='email'], input[type='password'], input[type='number'], select
+input[type='text'], input[type='email'], input[type='password'], input[type='number']
 {
     width: 100%;
     font-family: $fontMain;
-    font-size: $fontSize;
-    line-height: $fontSize;
+    font-size: 12px;
+    line-height: 16px;
     min-width: 0;
     color: $gray;
     border: 1px solid lighten($blue, 32%);
     border-radius: 3px;
-    font-size: 16px;
-    padding: 4px;
+    padding: 8px;
+
+    &:focus
+    {
+        outline: none;
+    }
+}
+
+select
+{
+    -webkit-appearance: none;
+    //width: 100%;
+    font-family: $fontMain;
+    font-size: 12px;
+    line-height: 16px;
+    min-width: 0;
+    color: $gray;
+    border: 1px solid lighten($blue, 32%);
+    border-radius: 3px;
+    padding: 8px;
+
+    &:focus
+    {
+        outline: none;
+    }
 }
 
 input[type='button'], input[type='submit'], button
 {
+    -webkit-appearance: none;
     font-family: $fontMain;
     font-size: 12px;
     line-height: 12px;
     cursor: pointer;
     text-shadow: 0px 1px darken($gray, 25%);
     padding: 6px 12px;
-    background: linear-gradient(to top, $gray 0%, lighten($gray, 10%) 90%);
+    background: $gray;
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.25), inset 0 -1px 0px rgba(0, 0, 0, 0.1);
     border: 1px solid darken($gray, 10%);
     color: white;
     border-radius: 3px;
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($gray, 5%) 0%, saturate($gray, 5%) 90%);
-        border: 1px solid darken($gray, 15%);
+        background: lighten($gray, 10%);
+    }
+
+    &:focus
+    {
+        outline: none;
     }
 }
 
 .button.blue
 {
     text-shadow: 0px 1px darken($blue, 25%);
-    background: linear-gradient(to top, $blue 0%, lighten($blue, 10%) 90%);
+    background: $blue;
     border: 1px solid darken($blue, 10%);
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($blue, 5%) 0%, saturate($blue, 5%) 90%);
-        border: 1px solid darken($blue, 15%);
+        background: lighten($blue, 10%);
     }
 }
 
-.button.blue
-
-input[type='submit'], .button.green
+.button.green, input[type='submit']
 {
     text-shadow: 0px 1px darken($green, 25%);
-    background: linear-gradient(to top, $green 0%, lighten($green, 10%) 90%);
+    background: $green;
     border: 1px solid darken($green, 10%);
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($green, 5%) 0%, saturate($green, 5%) 90%);
-        border: 1px solid darken($green, 15%);
+        background: lighten($green, 10%);
     }
 }
 
 .button.red
 {
     text-shadow: 0px 1px darken($red, 25%);
-    background: linear-gradient(to top, $red 0%, lighten($red, 10%) 90%);
+    background: $red;
     border: 1px solid darken($red, 10%);
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($red, 5%) 0%, saturate($red, 5%) 90%);
-        border: 1px solid darken($red, 15%);
+        background: lighten($red, 10%);
     }
 }
 
@@ -136,39 +161,36 @@ input[type='submit'], .button.green
 {
     color: black;
     text-shadow: none;
-    background: linear-gradient(to top, $yellow 0%, lighten($yellow, 10%) 90%);
+    background: $yellow;
     border: 1px solid darken($yellow, 10%);
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($yellow, 5%) 0%, saturate($yellow, 5%) 90%);
-        border: 1px solid darken($yellow, 15%);
+        background: lighten($yellow, 10%);
     }
 }
 
 .button.orange
 {
     text-shadow: 0px 1px darken($orange, 25%);
-    background: linear-gradient(to top, $orange 0%, lighten($orange, 10%) 90%);
+    background: $orange;
     border: 1px solid darken($orange, 10%);
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($orange, 5%) 0%, saturate($orange, 5%) 90%);
-        border: 1px solid darken($orange, 15%);
+        background: lighten($orange, 10%);
     }
 }
 
 .button.purple
 {
     text-shadow: 0px 1px darken($purple, 25%);
-    background: linear-gradient(to top, $purple 0%, lighten($purple, 10%) 90%);
+    background: $purple;
     border: 1px solid darken($purple, 10%);
 
     &:hover
     {
-        background: linear-gradient(to top, desaturate($purple, 5%) 0%, saturate($purple, 5%) 90%);
-        border: 1px solid darken($purple, 15%);
+        background: lighten($purple, 10%);
     }
 }
 
@@ -261,7 +283,7 @@ input[type='submit'], .button.green
 
     > form
     {
-        flex-grow: 1;
+        width: 100%;
     }
 }
 
@@ -307,6 +329,90 @@ input[type='submit'], .button.green
 
 */
 
+#articles
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#articles-menu
+{
+    display: flex;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid lighten($gray, 70%);
+}
+
+#articles-wrapper
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > #article:not(:last-of-type)
+    {
+        margin-bottom: 32px;
+    }
+}
+
+#article
+{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    border: 1px solid lighten($gray, 70%);
+    border-radius: 3px;
+}
+
+#article-header
+{
+    flex-shrink: 0;
+    display: flex;
+    border-bottom: 1px solid lighten($gray, 70%);
+    padding: 16px;
+
+    > span
+    {
+        font-weight: 700;
+        line-height: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+#article-image
+{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+
+    > img
+    {
+        width: 100%;
+    }
+}
+
+#article-description
+{
+    display: flex;
+    flex-shrink: 0;
+    border-top: 1px solid lighten($gray, 70%);
+    height: 112px;
+    padding: 16px;
+    line-height: 20px;
+    text-align: justify;
+
+    > p
+    {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
 #blog
 {
     display: flex;
@@ -323,6 +429,15 @@ input[type='submit'], .button.green
     {
         margin-bottom: 32px;
     }
+}
+
+#blog-post
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 64px;
+    border: 1px solid lighten($gray, 70%);
+    border-radius: 3px;
 }
 
 #blog-sidepanel
@@ -342,51 +457,22 @@ input[type='submit'], .button.green
     }
 }
 
-#blog-post
-{
-    display: flex;
-    flex-direction: column;
-    min-height: 64px;
-    border: 1px solid lighten($gray, 70%);
-    border-radius: 3px;
-}
-
 #blog-post-header
 {
     border-bottom: 1px solid lighten($gray, 70%);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     padding: 16px;
     line-height: 24px;
 }
 
 #blog-post-header-title
 {
+    font-weight: 700;
+    line-height: 16px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-size: $fontSize * 1.5;
-}
-
-#blog-post-header-author
-{
-    display: flex;
-    align-items: center;
-    font-size: $fontSize;
-    margin-left: auto;
-
-    > img
-    {
-        width: 26px;
-        height: 26px;
-        border-radius: 2px;
-        image-rendering: pixelated;
-    }
-
-    > a
-    {
-        margin-right: 8px;
-    }
 }
 
 #blog-post-text
@@ -455,4 +541,14 @@ input[type='submit'], .button.green
         margin-left: 4px;
         color: inherit;
     }
+}
+
+/*
+
+    Styling for attribute bundles
+
+*/
+.flexitem-right
+{
+    margin-left: auto;
 }

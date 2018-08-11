@@ -13,6 +13,6 @@
 
 use Carbon\Carbon;
 
-Route::view('/', 'pages/blog', ['date' => Carbon::now()->format('jS F Y')]);
+Route::view('/', 'pages/blog', ['date' => Carbon::now()->format('jS F Y')]); // date temporary for tests obviously
 
-Route::view('/playground', 'pages/__playground');
+Route::view('/articles', 'pages/articles', ['date' => Carbon::now()->format('jS F Y')]);
