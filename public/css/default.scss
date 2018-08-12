@@ -396,9 +396,9 @@ input[type='button'], input[type='submit'], button
     font-size: 12px;
     line-height: 12px;
 
-    > i
+    > span, > a > span
     {
-        margin-right: 4px;
+        margin-left: 4px;
     }
 
     > span:not(:last-of-type)
