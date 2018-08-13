@@ -19,18 +19,18 @@
     </div>
     <div id="blog-sidepanel">
         <form action="">
-            <div id="input-group">
-                <div id="input-group-label">
+            <div class="input-group">
+                <div class="input-group-label">
                     <span>Sort</span>
                 </div>
                 <select name="order">
                     <option value="ascending">ascending</option>
                     <option value="descending">descending</option>
                 </select>
-                <div id="input-group-label">
+                <div class="input-group-label">
                     <span>by</span>
                 </div>
-                <select id="test" name="by">
+                <select name="by">
                     <option value="">date</option>
                     <option value="">title</option>
                     <option value="">tags</option>

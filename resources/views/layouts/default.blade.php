@@ -7,7 +7,11 @@
         <title>Snow.ly - {Page}</title>
     </head>
     <body>
-        @include('components/alerts')
+        <div class="alert">
+            <div class="alert-header">
+
+            </div>
+        </div>
         @include('components/nav')
         <div id="content">
             @yield('content')

@@ -1,11 +1,11 @@
-<div id="article">
-    <div id="article-header">
+<div class="article">
+    <div class="article-header">
         <span>{{ $title }}</span>
     </div>
-    <div id="article-image">
+    <div class="article-image">
         <img src="{{ $image }}"/>
     </div>
-    <div id="article-description">
+    <div class="article-description">
         <p>{{ $description }}</p>
     </div>
 </div>

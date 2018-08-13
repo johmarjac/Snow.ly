@@ -194,7 +194,12 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#input-group
+.alert
+{
+    display: flex;
+}
+
+.input-group
 {
     display: flex;
 
@@ -210,7 +215,7 @@ input[type='button'], input[type='submit'], button
 }
 
 //All non-label elements in between
-#input-group > *:not(#input-group-label):not(:first-child):not(:last-child)
+.input-group > *:not(.input-group-label):not(:first-child):not(:last-child)
 {
     border-left: none;
     border-right: none;
@@ -218,26 +223,26 @@ input[type='button'], input[type='submit'], button
 }
 
 //All labels in between
-#input-group-label:not(:first-child):not(:last-child)
+.input-group-label:not(:first-child):not(:last-child)
 {
     border-radius: 0;
 }
 
 //First element
-#input-group > *:first-child
+.input-group > *:first-child
 {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
 //Last element
-#input-group > *:last-child
+.input-group > *:last-child
 {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-#input-group-label
+.input-group-label
 {
     font-family: $fontMain;
     font-size: 12px;
@@ -335,7 +340,7 @@ input[type='button'], input[type='submit'], button
     align-items: flex-start;
     flex-wrap: wrap;
 
-    > #project:not(:last-of-type)
+    > .project:not(:last-of-type)
     {
         margin-bottom: 16px;
     }
@@ -346,7 +351,7 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#project
+.project
 {
     width: calc(25% - 12px);
     display: flex;
@@ -355,7 +360,7 @@ input[type='button'], input[type='submit'], button
     border-left: 4px solid lighten($gray, 70%);
 }
 
-#project-header
+.project-header
 {
     display: flex;
     padding: 16px;
@@ -377,7 +382,7 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#project-description
+.project-description
 {
     display: flex;
     padding: 0 16px;
@@ -388,22 +393,28 @@ input[type='button'], input[type='submit'], button
     overflow: hidden;
 }
 
-#project-footer
+.project-footer
 {
     display: flex;
     padding: 16px;
     color: lighten($gray, 40%);
     font-size: 12px;
     line-height: 12px;
+    align-items: flex-end;
 
-    > span, > a > span
+    > i
     {
-        margin-left: 4px;
+        margin-right: 2px;
     }
 
-    > span:not(:last-of-type)
+    > span
     {
-        margin-right: 8px;
+        margin-right: 16px;
+    }
+
+    > a
+    {
+        font-size: 16px;
     }
 }
 
@@ -426,7 +437,7 @@ input[type='button'], input[type='submit'], button
     display: flex;
     flex-wrap: wrap;
 
-    > #article:not(:last-of-type)
+    > .article:not(:last-of-type)
     {
         margin-bottom: 16px;
     }
@@ -437,7 +448,7 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#article
+.article
 {
     display: flex;
     flex-direction: column;
@@ -445,7 +456,7 @@ input[type='button'], input[type='submit'], button
     height: 350px;
 }
 
-#article-header
+.article-header
 {
     flex-shrink: 0;
     display: flex;
@@ -465,7 +476,7 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#article-image
+.article-image
 {
     display: flex;
     width: 100%;
@@ -479,7 +490,7 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#article-description
+.article-description
 {
     display: flex;
     flex-shrink: 0;
@@ -505,28 +516,6 @@ input[type='button'], input[type='submit'], button
     display: flex;
 }
 
-#blog-posts
-{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 2;
-    overflow-x: hidden;
-
-    > #blog-post:not(:last-of-type)
-    {
-        margin-bottom: 32px;
-    }
-}
-
-#blog-post
-{
-    display: flex;
-    flex-direction: column;
-    min-height: 64px;
-    border: 1px solid lighten($gray, 70%);
-    border-radius: 3px;
-}
-
 #blog-sidepanel
 {
     display: flex;
@@ -544,7 +533,29 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-#blog-post-header
+#blog-posts
+{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    overflow-x: hidden;
+
+    > .post:not(:last-of-type)
+    {
+        margin-bottom: 32px;
+    }
+}
+
+.post
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 64px;
+    border: 1px solid lighten($gray, 70%);
+    border-radius: 3px;
+}
+
+.post-header
 {
     border-bottom: 1px solid lighten($gray, 70%);
     display: flex;
@@ -553,7 +564,7 @@ input[type='button'], input[type='submit'], button
     line-height: 24px;
 }
 
-#blog-post-header-title
+.post-header-title
 {
     font-weight: 700;
     line-height: 16px;
@@ -562,34 +573,34 @@ input[type='button'], input[type='submit'], button
     overflow: hidden;
 }
 
-#blog-post-text
+.post-text
 {
     padding: 16px;
     padding-bottom: 0;
     line-height: $fontSize * 1.5;
 }
 
-#blog-post-footer
+.post-footer
 {
     display: flex;
     align-items: flex-end;
     padding: 16px;
 }
 
-#blog-post-footer-date
+.post-footer-date
 {
     font-size: 14px;
     color: lighten($gray, 40%);
 }
 
-#blog-post-footer-tags
+.post-footer-tags
 {
     display: flex;
     margin-left: auto;
     flex-wrap: wrap;
     flex-direction: row-reverse;
 
-    > #tag
+    > .tag
     {
         margin-left: 4px;
     }
@@ -601,7 +612,7 @@ input[type='button'], input[type='submit'], button
 
 */
 
-#tag
+.tag
 {
     display: inline-flex;
     align-items: center;

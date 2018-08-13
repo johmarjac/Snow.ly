@@ -9,6 +9,7 @@
             @slot('stars', 500)
             @slot('forks', 100)
             @slot('views', 10000)
+            @slot('release', 'ScribeBot-Release 1.0b')
         @endcomponent
     @endfor
 </div>
