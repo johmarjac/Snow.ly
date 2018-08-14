@@ -15,12 +15,6 @@ $fontAlt: 'Quicksand', sans-serif;
 $fontTiny: 'Inconsolata', monospace;
 $fontSize: 16px;
 
-/*
-
-    Styling for DOM elements
-
-*/
-
 *
 {
     box-sizing: border-box;
@@ -194,11 +188,6 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-.alert
-{
-    display: flex;
-}
-
 .input-group
 {
     display: flex;
@@ -255,12 +244,6 @@ input[type='button'], input[type='submit'], button
     border: 1px solid lighten($blue, 32%);
     border-radius: 3px;
 }
-
-/*
-
-    Styling for default elements
-
-*/
 
 #nav
 {
@@ -327,12 +310,6 @@ input[type='button'], input[type='submit'], button
         }
     }
 }
-
-/*
-
-    Styling for pages
-
-*/
 
 #projects
 {
@@ -606,12 +583,6 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-/*
-
-    Styling for standalone components
-
-*/
-
 .tag
 {
     display: inline-flex;
@@ -643,10 +614,122 @@ input[type='button'], input[type='submit'], button
 }
 
 /*
+$gray: rgb(36, 39, 43);
+$red: rgb(204, 61, 61);
+$green: rgb(30, 153, 50);
+$blue: rgb(61, 108, 204);
+$yellow: rgb(229, 208, 45);
+$orange: rgb(229, 137, 45);
+$purple: rgb(120, 61, 204);
+*/
+
+.alert
+{
+    display: flex;
+    height: 32px;
+    background: $gray;
+    color: white;
+
+    > .alert-message
+    {
+        background: lighten($gray, 5%);
+    }
+}
+
+.alert.red
+{
+    background: $red;
+
+    > .alert-message
+    {
+        background: lighten($red, 5%);
+    }
+}
+
+.alert.green
+{
+    background: $green;
+
+    > .alert-message
+    {
+        background: lighten($green, 5%);
+    }
+}
+
+.alert.blue
+{
+    background: $blue;
+
+    > .alert-message
+    {
+        background: lighten($blue, 5%);
+    }
+}
+
+.alert.yellow
+{
+    color: black;
+    background: $yellow;
+
+    > .alert-message
+    {
+        background: lighten($yellow, 5%);
+    }
+}
+
+.alert.orange
+{
+    background: $orange;
+
+    > .alert-message
+    {
+        background: lighten($orange, 5%);
+    }
+}
+
+.alert.purple
+{
+    background: $purple;
+
+    > .alert-message
+    {
+        background: lighten($purple, 5%);
+    }
+}
+
+.alert-icon
+{
+    width: 32px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-message
+{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+.alert-button
+{
+    width: 32px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
 
     Styling for attribute bundles
 
 */
+
 .flexitem-right
 {
     margin-left: auto;
