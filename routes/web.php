@@ -20,3 +20,5 @@ Route::view('/articles', 'pages/articles', ['date' => Carbon::now()->format('jS 
 Route::view('/projects', 'pages/projects', ['date' => Carbon::now()->format('jS F Y')]);
 
 Route::view('/contact', 'pages/contact', ['date' => Carbon::now()->format('jS F Y')]);
+
+Route::view('/about', 'pages/about', ['date' => Carbon::now()->format('jS F Y')]);

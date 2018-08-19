@@ -6,6 +6,12 @@
         <link rel="stylesheet" type="text/css" href="css/default.min.css">
         <title>Snow.ly - {Page}</title>
     </head>
+    <script>
+        window.FontAwesomeConfig =
+        {
+            searchPseudoElements: true
+        }
+    </script>
     <body>
         @if(false)
             @component('components/alert')
