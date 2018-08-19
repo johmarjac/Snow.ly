@@ -35,13 +35,14 @@
         </form>
     </div>
     <div id="articles-wrapper">
-        @for ($i=0; $i < 10; $i++)
+        @foreach($articles as $article)
             @component('components/articles/article')
-                @slot('title', 'Article Title')
-                @slot('image', 'https://i.pinimg.com/originals/af/bc/21/afbc21512376546968e281a61d47260b.jpg')
-                @slot('description', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non sint qui, labore, aspernatur nemo autem nisi cumque, suscipit, ipsa et voluptatem quibusdam harum necessitatibus incidunt! Repellat quas dignissimos nulla aut?')
+                @slot('id', $article->id)
+                @slot('name', $article->name)
+                @slot('thumbnail', $article->thumbnail)
+                @slot('description', $article->description)
             @endcomponent
-        @endfor
+        @endforeach
     </div>
 </div>
 @endsection

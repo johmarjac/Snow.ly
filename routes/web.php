@@ -15,10 +15,15 @@ use Carbon\Carbon;
 
 Route::view('/', 'pages/blog', ['date' => Carbon::now()->format('jS F Y')]); // date temporary for tests obviously
 
-Route::view('/articles', 'pages/articles', ['date' => Carbon::now()->format('jS F Y')]);
+Route::get('/articles', 'ArticleController@index');
+Route::get('/articles/{article}', 'ArticleController@show');
 
 Route::view('/projects', 'pages/projects', ['date' => Carbon::now()->format('jS F Y')]);
 
 Route::view('/contact', 'pages/contact', ['date' => Carbon::now()->format('jS F Y')]);
 
 Route::view('/about', 'pages/about', ['date' => Carbon::now()->format('jS F Y')]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

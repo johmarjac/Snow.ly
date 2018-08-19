@@ -6,7 +6,7 @@
         <p>{{ $text }}</p>
     </div>
     <div class="post-footer">
-        <span class="post-footer-date">{{ $date }}</span>
+        <span class="post-footer-date"><i class="far fa-calendar-alt"></i><span>{{ $date }}</span></span>
         <div class="post-footer-tags">
             {{ $tags }}
         </div>
