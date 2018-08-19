@@ -5,8 +5,18 @@
         <div id="article-show-header">
             <span>{{ $article->name }}</span>
         </div>
-        <div id="article-show-content" contenteditable="true">
+        <div id="article-show-content">
             {!! $article->content !!}
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+            <ol>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ol>
         </div>
         <div id="article-show-footer">
             <span id="article-show-footer-date"><i class="far fa-calendar-alt"></i><span>{{ $article->created_at_formatted }}</span></span>
@@ -19,9 +29,8 @@
             </div>
         </div>
     </div>
-    <div id="article-show-menu">
-        thumbnail here
-        <example-component></example-component>
+    <div id="article-show-menu" class="vue">
+        <article-headermenu></article-headermenu>
     </div>
 </div>
 @endsection

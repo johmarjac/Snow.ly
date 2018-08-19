@@ -7,6 +7,10 @@
 
 require('./bootstrap');
 
+// Register $ global var for jQuery
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
 window.Vue = require('vue');
 
 window.FontAwesomeConfig =
@@ -20,8 +24,9 @@ window.FontAwesomeConfig =
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('article-headermenu', require('./components/ArticleHeaderMenu.vue'));
 
-const app = new Vue({
-    el: '#app'
+const app = new Vue(
+{
+    el: '.vue'
 });
