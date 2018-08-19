@@ -52,8 +52,9 @@ p
     white-space: pre-line;
 }
 
-input[type='text'], input[type='email'], input[type='password'], input[type='number']
+input[type='text'], input[type='email'], input[type='password'], input[type='number'], textarea
 {
+    resize: none;
     width: 100%;
     font-family: $fontMain;
     font-size: 12px;
@@ -67,6 +68,11 @@ input[type='text'], input[type='email'], input[type='password'], input[type='num
     &:focus
     {
         outline: none;
+    }
+
+    &::placeholder
+    {
+        color: lighten($blue, 12%);
     }
 }
 
@@ -89,7 +95,7 @@ select
     }
 }
 
-input[type='button'], input[type='submit'], button
+input[type='button'], input[type='submit'], button, button[type='submit']
 {
     -webkit-appearance: none;
     font-family: $fontMain;
@@ -97,7 +103,7 @@ input[type='button'], input[type='submit'], button
     line-height: 12px;
     cursor: pointer;
     text-shadow: 0px 1px darken($gray, 25%);
-    padding: 6px 12px;
+    padding: 8px 16px;
     background: $gray;
     box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.25), inset 0 -1px 0px rgba(0, 0, 0, 0.1);
     border: 1px solid darken($gray, 10%);
@@ -127,7 +133,7 @@ input[type='button'], input[type='submit'], button
     }
 }
 
-.button.green, input[type='submit']
+.button.green, input[type='submit'], button[type='submit']
 {
     text-shadow: 0px 1px darken($green, 25%);
     background: $green;
@@ -488,6 +494,29 @@ input[type='button'], input[type='submit'], button
     }
 }
 
+#contact
+{
+    display: flex;
+    padding: 0 12vw;
+
+    > form
+    {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        > *
+        {
+            flex-grow: 1;
+        }
+    }
+
+    > form > *:not(:first-child)
+    {
+        margin-top: 8px;
+    }
+}
+
 #blog
 {
     display: flex;
@@ -612,16 +641,6 @@ input[type='button'], input[type='submit'], button
         color: inherit;
     }
 }
-
-/*
-$gray: rgb(36, 39, 43);
-$red: rgb(204, 61, 61);
-$green: rgb(30, 153, 50);
-$blue: rgb(61, 108, 204);
-$yellow: rgb(229, 208, 45);
-$orange: rgb(229, 137, 45);
-$purple: rgb(120, 61, 204);
-*/
 
 .alert
 {
