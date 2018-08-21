@@ -10,9 +10,16 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        //Get categories too
+        $articles = Article::all();
 
-        return view('pages/articles', ['articles' => Article::all()]);
+        $articles->each(function($i, $k)
+        {
+            //$i->slug =
+        });
+
+        $categories = $articles->pluck('category')->unique();
+
+        return view('pages/articles', ['articles' => $articles, 'categories' => $categories]);
     }
 
     public function create()
@@ -25,9 +32,12 @@ class ArticleController extends Controller
         //
     }
 
-    public function show(Article $article)
+    public function show(string $article)
     {
+        $article = Article::where('slug', 'like', $article)->first();
+
         $article->created_at_formatted = $article->created_at->format('jS F Y');
+        $article->tags = explode(",", $article->tags);
 
         return view('pages/article_show', ['article' => $article]);
     }

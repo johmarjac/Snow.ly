@@ -1,5 +1,5 @@
 <template>
-    <ul id="article-show-menu-headers">
+    <ul id="header-menu">
         <li v-for="header in headers">
             <a :href="header.link">{{ header.text }}</a>
             <ul>
@@ -13,9 +13,15 @@
 
 <script>
     var headers = []
+
+    var hasBigHeaders = ($('h3').length > 0);
+
+    if( !hasBigHeaders )
+        headers.push({ text: '', link: '', subheaders: [] })
+
     $('h3, h4').each(function(i, e)
     {
-        var header = { text: e.textContent, link: e.textContent.replace(/ /gm, "-") }
+        var header = { text: e.textContent, link: e.textContent.replace(/ /gm, "-").toLowerCase() }
 
         $(e).prepend(`<a name='${header.link}'></a>`)
 
@@ -31,8 +37,6 @@
             headers[headers.length - 1].subheaders.push(header)
         }
     })
-
-    console.log(JSON.stringify(headers))
 
     export default
     {

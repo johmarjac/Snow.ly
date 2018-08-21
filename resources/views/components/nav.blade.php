@@ -3,9 +3,9 @@
         <span>Snow.ly</span>
     </div>
     <div id="nav-search">
-        <form action="" method="GET">
+        <form action="/search/" method="GET">
             <div class="input-group">
-                <input type="text" name="search"/>
+                <input type="text" name="keywords" placeholder="{{ Request::input('keywords') }}"/>
                 <button class="button blue"><i class="fas fa-search"></i></button>
             </div>
         </form>

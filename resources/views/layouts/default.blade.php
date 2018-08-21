@@ -8,7 +8,7 @@
         <title>Snow.ly - {Page}</title>
     </head>
     <body>
-        @if(false)
+        @if(session('alert'))
             @component('components/alert')
                 @slot('message', "Post made.")
             @endcomponent

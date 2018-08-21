@@ -1,10 +1,29 @@
 @extends('layouts/default')
 @section('content')
 <div id="about">
-    <h3>Big Lebowsky</h3>
-    <p>Welcome to my webpage,
-    This website was created as a place for me to share and showcase my ideas.
-
-    Hopefully, you'll find something of use here.</p>
+    <div id="about-container">
+        <div id="about-header">
+            <div>
+                <img src="https://avatars1.githubusercontent.com/u/30983493?s=460&v=4">
+            </div>
+            <span>Big Lebowsky</span>
+        </div>
+        <div id="about-content">
+            <h4>Introduction</h4>
+            <p>Yesh</p>
+            <hr>
+            <h4>Skills</h4>
+            <p>Yesh</p>
+            <hr>
+            <h4>Experience</h4>
+            <p>Yesh</p>
+            <hr>
+            <h4>Personal Details</h4>
+            <p>Yesh</p>
+        </div>
+    </div>
+    <div id="about-menu" class="vue">
+        <header-menu></header-menu>
+    </div>
 </div>
 @endsection

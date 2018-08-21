@@ -1,11 +1,11 @@
 <div class="article">
     <div class="article-header">
-        <span><a href="/articles/{{ $id }}">{{ $name }}</a></span>
+        <span><a href="/articles/{{ slugify($article->name) }}">{{ $article->name }}</a></span>
     </div>
     <div class="article-image">
-        <img src="{{ $thumbnail }}"/>
+        <img src="{{ $article->thumbnail }}"/>
     </div>
     <div class="article-description">
-        <p>{{ $description }}</p>
+        <p>{{ $article->description }}</p>
     </div>
 </div>

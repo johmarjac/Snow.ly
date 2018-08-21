@@ -4,33 +4,27 @@
     <div id="article-show-container">
         <div id="article-show-header">
             <span>{{ $article->name }}</span>
+            <a class="flexitem-right" href="/search/?keywords={{ $article->category }}" name="keywords">{{ $article->category }}</a>
         </div>
         <div id="article-show-content">
             {!! $article->content !!}
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-            <ol>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ol>
         </div>
         <div id="article-show-footer">
-            <span id="article-show-footer-date"><i class="far fa-calendar-alt"></i><span>{{ $article->created_at_formatted }}</span></span>
+            <span id="article-show-footer-date">
+                <i class="far fa-calendar-alt"></i>
+                <span>{{ $article->created_at_formatted }}</span>
+            </span>
             <div id="article-show-footer-tags">
-                @for ($j=0; $j < 5; $j++)
+                @foreach ($article->tags as $tag)
                     @component('components/tag')
-                        @slot('tag', 'csharp ' . $j)
+                        @slot('tag', $tag)
                     @endcomponent
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
     <div id="article-show-menu" class="vue">
-        <article-headermenu></article-headermenu>
+        <header-menu></header-menu>
     </div>
 </div>
 @endsection

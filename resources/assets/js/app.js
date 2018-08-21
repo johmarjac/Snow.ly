@@ -24,7 +24,7 @@ window.FontAwesomeConfig =
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('article-headermenu', require('./components/ArticleHeaderMenu.vue'));
+Vue.component('header-menu', require('./components/HeaderMenu.vue'));
 
 const app = new Vue(
 {
