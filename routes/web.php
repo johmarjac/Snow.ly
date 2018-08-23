@@ -11,6 +11,11 @@
 |
 */
 
+Route::domain('admin.snowly.dev')->group(function ()
+{
+    Route::get('/', 'AdminPageController@index');
+});
+
 Route::get('/', 'PostController@index'); //temporary
 Route::get('/blog', 'PostController@index');
 Route::get('/articles', 'ArticleController@index');

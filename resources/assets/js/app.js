@@ -25,8 +25,12 @@ window.FontAwesomeConfig =
  */
 
 Vue.component('header-menu', require('./components/HeaderMenu.vue'));
+Vue.component('html-editor', require('./components/HTMLEditor.vue'));
 
-const app = new Vue(
+$( document ).ready(function()
 {
-    el: '.vue'
-});
+    const app = new Vue(
+    {
+        el: '.vue'
+    });
+})

@@ -24,6 +24,7 @@
         </div>
     </div>
     <div id="article-show-menu" class="vue">
+        thumbnail
         <header-menu></header-menu>
     </div>
 </div>

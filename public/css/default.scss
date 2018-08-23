@@ -61,7 +61,7 @@ hr
     margin: 0;
     padding: 16px 0 0 0;
     border: none;
-    border-top: 1px dashed lighten($gray, 70%);
+    border-top: 1px dashed lighten($gray, 72%);
 }
 
 h1, h2, h3, h4, h5, h6
@@ -493,6 +493,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     flex-basis: 1*20%;
     padding: 16px;
     border: 1px solid lighten($gray, 70%);
+    border-left: 1px solid lighten($gray, 78%);
     border-radius: 3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -504,6 +505,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     flex-direction: column;
     padding: 16px;
     border: 1px solid lighten($gray, 70%);
+    border-top: 1px solid lighten($gray, 78%);
     border-right: none;
     border-bottom-left-radius: 3px;
 }
@@ -700,6 +702,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     flex-shrink: 0;
     display: flex;
     border: 1px solid lighten($gray, 70%);
+    border-bottom: 1px solid lighten($gray, 78%);
     border-top-left-radius: 3px;
     border-right: none;
     padding: 16px;
@@ -739,6 +742,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     align-items: center;
     padding: 16px;
     border: 1px solid lighten($gray, 70%);
+    border-top: 1px solid lighten($gray, 78%);
     border-right: none;
     border-bottom-left-radius: 3px;
 }
@@ -779,6 +783,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     flex-basis: 1*20%;
     padding: 16px;
     border: 1px solid lighten($gray, 70%);
+    border-left: 1px solid lighten($gray, 78%);
     border-radius: 3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -855,7 +860,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
 .post-header
 {
-    border-bottom: 1px solid lighten($gray, 70%);
+    border-bottom: 1px solid lighten($gray, 78%);
     display: flex;
     padding: 16px;
 
@@ -899,7 +904,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     display: flex;
     align-items: center;
     padding: 16px;
-    border-top: 1px solid lighten($gray, 70%);
+    border-top: 1px solid lighten($gray, 78%);
 }
 
 .post-footer-date
