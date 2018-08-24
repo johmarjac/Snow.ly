@@ -1,38 +1,184 @@
-    <template>
-        <div class="htmleditor">
-            <div class="htmleditor-input">
-                <h3>Header</h3>
-                <p>Paragraph of text</p>
+<template>
+    <div class="htmleditor">
+        <div class="htmleditor-input">
+            <div class="htmleditor-toolbar">
+                <i v-for="tool in toolbar" :class="tool.icon" @click="html+=tool.html"></i>
             </div>
-            <div class="htmleditor-output">
-
-            </div>
+            <textarea rows="16" v-model="html" :name="inputname"></textarea>
         </div>
-    </template>
+        <div class="htmleditor-output" v-html="html"></div>
+    </div>
+</template>
 
-    <script>
-        export default
-        {
-            data: () =>
-            ({
-                html: ''
-            }),
-        }
-    </script>
+<script>
+    export default
+    {
+        props: ['inputname', 'inputvalue'],
+        data: () =>
+        ({
+            html: this.inputvalue,
+            toolbar:
+            {
+                bold:
+                {
+                    icon: 'fas fa-fw fa-bold',
+                    html: '<b></b>',
+                },
 
-    <style scoped src="../../../../public/css/default.min.css">
-        .htmleditor
-        {
-            display: flex;
-        }
+                italic:
+                {
+                    icon: 'fas fa-fw fa-italic',
+                    html: '<i></i>',
+                },
 
-        .htmleditor-input
-        {
-            border: 1px solid green;
-        }
+                underline:
+                {
+                    icon: 'fas fa-fw fa-underline',
+                    html: '<u></u>',
+                },
 
-        .htmleditor-output
+                paragraph:
+                {
+                    icon: 'fas fa-fw fa-paragraph',
+                    html: '<p></p>',
+                },
+
+                listo:
+                {
+                    icon: 'fas fa-fw fa-list-ol',
+                    html: '<ol>\n</ol>',
+                },
+
+                listu:
+                {
+                    icon: 'fas fa-fw fa-list-ul',
+                    html: '<ul>\n</ul>',
+                },
+
+                listitem:
+                {
+                    icon: 'fas fa-fw fa-ellipsis-v',
+                    html: '<li></li>',
+                },
+
+                header:
+                {
+                    icon: 'fas fa-fw fa-heading',
+                    html: '<h3></h3>',
+                },
+
+                subheader:
+                {
+                    icon: 'fas fa-fw fa-heading',
+                    html: '<h4></h4>',
+                },
+
+                image:
+                {
+                    icon: 'far fa-fw fa-image',
+                    html: '<img src=""/>',
+                },
+
+                media:
+                {
+                    icon: 'fab fa-fw fa-youtube',
+                    html: '<div class="media"></div>',
+                },
+
+                label:
+                {
+                    icon: 'fas fa-fw fa-square',
+                    html: '<span class="label"></span>',
+                },
+
+                note:
+                {
+                    icon: 'fas fa-fw fa-comment-dots',
+                    html: '<div class="note blue">\n</div>',
+                },
+
+                highlight:
+                {
+                    icon: 'fas fa-fw fa-highlighter',
+                    html: '<span class="highlighter"></span>',
+                },
+
+                code:
+                {
+                    icon: 'fas fa-fw fa-code',
+                    html: '<pre class="code"></pre>',
+                },
+            }
+        }),
+        mounted()
         {
-            border: 1px solid yellow;
+            this.html = this.inputvalue;
         }
-    </style>
+    }
+</script>
+
+<style scoped>
+    @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
+
+    .htmleditor
+    {
+        display: flex;
+        background: rgb(233, 236, 239);
+        border: 1px solid rgb(206, 212, 218);
+        border-radius: 3px;
+        padding: 4px;
+        margin-bottom: 15px;
+    }
+
+    .htmleditor-toolbar
+    {
+        padding: 8px;
+        background: linear-gradient( to bottom, rgb(250, 250, 255) 30%, rgb(240, 240, 255) 80% );
+        border: 1px solid rgb(206, 212, 218);
+    }
+
+    .htmleditor-toolbar > i
+    {
+        color: rgb(186, 192, 198);
+        cursor: pointer;
+        padding: 4px;
+    }
+
+    .htmleditor-toolbar > i:hover
+    {
+        transition: 0.25s color linear;
+        text-shadow: none;
+        color: black;
+    }
+
+    .htmleditor-toolbar > i:not(:last-of-type)
+    {
+        margin-right: 8px;
+    }
+
+    .htmleditor-input
+    {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 40%;
+        margin-right: 4px;
+    }
+
+    .htmleditor-output
+    {
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(206, 212, 218);
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 40%;
+        padding: 4px;
+        overflow: auto;
+        white-space: normal;
+    }
+</style>
+
+<style scoped src="../../../../public/css/default.min.css" />

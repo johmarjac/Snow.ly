@@ -885,6 +885,8 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
 .post-text
 {
+    display: flex;
+    flex-direction: column;
     padding: 16px;
 
     > h3, > h4

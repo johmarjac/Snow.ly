@@ -26,6 +26,9 @@ window.FontAwesomeConfig =
 
 Vue.component('header-menu', require('./components/HeaderMenu.vue'));
 Vue.component('html-editor', require('./components/HTMLEditor.vue'));
+Vue.component('api-form', require('./components/APIForm.vue'));
+
+Vue.config.productionTip = false;
 
 $( document ).ready(function()
 {
