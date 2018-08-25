@@ -1,6 +1,6 @@
 <template>
     <form :action="action" :method="method">
-        <slot :selected="selected" :results="results"></slot>
+        <slot :selectedId="selectedId" :results="results"></slot>
     </form>
 </template>
 
@@ -12,11 +12,16 @@
         data: () =>
         ({
             results: [],
-            selected: 0,
+            selectedId: 0,
         }),
 
         created()
         {
+            this.$root.$on('update:selectedId', (value) =>
+            {
+                this.selectedId = value
+            })
+
             setTimeout(() =>
             {
                 axios.get(this.url).then(response => (this.results = response.data))

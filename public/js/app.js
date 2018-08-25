@@ -48153,12 +48153,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             results: [],
-            selected: 0
+            selectedId: 0
         };
     },
 
     created: function created() {
         var _this = this;
+
+        this.$root.$on('update:selectedId', function (value) {
+            _this.selectedId = value;
+        });
 
         setTimeout(function () {
             axios.get(_this.url).then(function (response) {
@@ -48179,7 +48183,12 @@ var render = function() {
   return _c(
     "form",
     { attrs: { action: _vm.action, method: _vm.method } },
-    [_vm._t("default", null, { selected: _vm.selected, results: _vm.results })],
+    [
+      _vm._t("default", null, {
+        selectedId: _vm.selectedId,
+        results: _vm.results
+      })
+    ],
     2
   )
 }

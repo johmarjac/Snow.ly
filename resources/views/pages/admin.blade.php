@@ -49,18 +49,18 @@
                     <div class="tab-pane fade" id="blog-content-manage" role="tabpanel" aria-labelledby="blog-content-manage-tab">
                         <api-form action="/blog" method="POST" url="/api/v1/blog">
                             <template slot-scope="props">
-                                <select class="form-control mb-3" v-model="props.selected">
-                                    <option v-for="entry, i in props.results" :value="entry">@{{ entry.title }}</option>
+                                <select class="form-control mb-3" :value="props.selectedId" @input="$emit('update:selectedId', $event.target.value)" >
+                                    <option v-for="entry, i in props.results" :value="i">@{{ entry.title }}</option>
                                 </select>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Title</span>
                                     </div>
-                                    <input type="text" name="title" class="form-control" placeholder="Post title" v-if="props.results[props.selected]" :value="props.results[props.selected].title">
+                                    <input type="text" name="title" class="form-control" placeholder="Post title" v-if="props.results[props.selectedId]" :value="props.results[props.selectedId].title">
                                     <div class="input-group-prepend ml-2">
                                         <span class="input-group-text">Tags</span>
                                     </div>
-                                    <input type="text" name="tags" class="form-control" placeholder="tag1,tag2.." v-if="props.results[props.selected]" :value="props.results[props.selected].tags">
+                                    <input type="text" name="tags" class="form-control" placeholder="tag1,tag2.." v-if="props.results[props.selectedId]" :value="props.results[props.selectedId].tags">
                                 </div>
                                 <html-editor inputname="text" inputvalue="TEST"></html-editor>
                                 <button class="btn btn-primary">Update</button>
