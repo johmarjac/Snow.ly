@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
@@ -32,6 +33,16 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'name' => 'required',
+            'tags' => 'required',
+            'category' => 'required',
+            'thumbnail' => 'required',
+            'content' => 'required',
+            'description' => 'required'
+        ]);
+
         $article = new Article();
         $article->slug = slugify($request->name);
         $article->name = $request->name;
@@ -66,6 +77,16 @@ class ArticleController extends Controller
 
     public function update(Request $request, Article $article)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'name' => 'required',
+            'tags' => 'required',
+            'category' => 'required',
+            'thumbnail' => 'required',
+            'content' => 'required',
+            'description' => 'required'
+        ]);
+
         $article->name = $request->name;
         $article->tags = $request->tags;
         $article->category = $request->category;

@@ -20,7 +20,6 @@ class CreateSettingsTable extends Migration
             $table->string('name')->default('Bob Snowlyski');
             $table->string('user')->default('admin');
             $table->text('password');
-            $table->string('email')->default('admin@codeitbe.xyz');
             $table->string('github_username')->default('jonekcode');
             $table->string('theme')->default('default.css');
             $table->text('about_content');

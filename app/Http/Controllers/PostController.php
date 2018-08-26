@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -32,6 +33,19 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'title' => 'required',
+            'text' => 'required',
+            'tags' => 'required'
+        ]);
+
+        if($validator->fails())
+        {
+            session()->flash('alert', ['text' => $validator->messages()->first(), 'type' => 'alert-danger']);
+            return redirect()->back();
+        }
+
         $post = new Post();
         $post->slug = slugify($request->title);
         $post->title = $request->title;
@@ -51,6 +65,13 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'title' => 'required',
+            'text' => 'required',
+            'tags' => 'required'
+        ]);
+
         $post->title = $request->title;
         $post->tags = $request->tags;
         $post->text = $request->text;

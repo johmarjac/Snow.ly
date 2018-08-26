@@ -1,4 +1,5 @@
 @extends('layouts/default')
+@section('title', 'Blog')
 @section('content')
 <div id="blog">
     <div id="blog-posts">

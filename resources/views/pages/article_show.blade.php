@@ -1,4 +1,5 @@
 @extends('layouts/default')
+@section('title', $article->name)
 @section('content')
 <div id="article-show">
     <div id="article-show-container">

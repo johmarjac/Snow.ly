@@ -32,6 +32,10 @@ Route::post('articles/{article}/update', 'ArticleController@update');
 Route::post('articles/{article}/delete', 'ArticleController@destroy');
 
 Route::get('search', 'SearchController@filter');
-Route::view('projects', 'pages/projects');
+
+Route::get('projects', 'ProjectController@index');
+Route::post('projects/fetch', 'ProjectController@fetch');
+Route::post('projects/update', 'ProjectController@update');
+
 Route::view('contact', 'pages/contact');
 Route::view('about', 'pages/about');

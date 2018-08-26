@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SearchController extends Controller
 {
     public function filter(Request $request)
     {
-        $keywords = $request->input('keywords');
+        $validator = Validator::make($request->all(),
+        [
+            'keywords' => 'required',
+        ]);
+
+        $keywords = $request->keywords;
         $articles = collect();
         $blog = collect();
 

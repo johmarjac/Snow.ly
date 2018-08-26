@@ -2,7 +2,7 @@
     <div class="htmleditor">
         <div class="htmleditor-input">
             <div class="htmleditor-toolbar">
-                <i v-for="tool in toolbar" :class="tool.icon" @click="html+=tool.html"></i>
+                <i v-for="tool in toolbar" :class="tool.icon" @click="minput=(minput||'')+tool.html"></i>
             </div>
             <textarea rows="16" v-model="minput" :name="inputname"></textarea>
         </div>

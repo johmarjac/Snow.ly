@@ -1,4 +1,5 @@
 @extends('layouts/default')
+@section('title', 'Contact')
 @section('content')
 <div id="contact">
     <form action="" method="post">

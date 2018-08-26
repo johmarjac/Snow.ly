@@ -29,7 +29,6 @@ class SettingsServiceProvider extends ServiceProvider
         config(['snowly.name' => $settings->name]);
         config(['snowly.user' => $settings->user]);
         config(['snowly.password' => $settings->password]);
-        config(['snowly.email' => $settings->email]);
         config(['snowly.github_username' => $settings->github_username]);
         config(['snowly.theme' => $settings->theme]);
         config(['snowly.about_content' => $settings->about_content]);

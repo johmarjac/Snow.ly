@@ -1,4 +1,5 @@
 @extends('layouts/default')
+@section('title', 'Articles')
 @section('content')
 <div id="articles">
     <div id="articles-menu">

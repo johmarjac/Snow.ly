@@ -562,6 +562,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 {
     display: flex;
     padding: 0 16px;
+    min-height: 72px;
     max-height: 72px;
     text-overflow: ellipsis;
     overflow: hidden;

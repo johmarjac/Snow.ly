@@ -1,4 +1,5 @@
 @extends('layouts/default')
+@section('title', 'Search')
 @section('content')
 <div id="search">
     @if($count == 0)

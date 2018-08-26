@@ -48,18 +48,18 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Title</span>
                                 </div>
-                                <input type="text" name="title" class="form-control">
+                                <input type="text" name="title" class="form-control" required>
                                 <div class="input-group-prepend ml-2">
                                     <span class="input-group-text">Tags</span>
                                 </div>
-                                <input type="text" name="tags" class="form-control" placeholder="tag1,tag2..">
+                                <input type="text" name="tags" class="form-control" placeholder="tag1,tag2.." required>
                             </div>
                             <html-editor inputname="text"></html-editor>
                             <button class="btn btn-success btn-block">Submit</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="blog-content-manage" role="tabpanel" aria-labelledby="blog-content-manage-tab">
-                        <api-form url="/api/v1/blog">
+                        <api-bound-container url="/api/v1/blog">
                             <template slot-scope="props">
                                 <form v-if="props.results[props.selectedId]" :action="'blog/' + props.results[props.selectedId].id + '/update'" method="POST">
                                     @csrf
@@ -83,7 +83,7 @@
                                     </button>
                                 </form>
                             </template>
-                        </api-form>
+                        </api-bound-container>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="articles-content-manage" role="tabpanel" aria-labelledby="articles-content-manage-tab">
-                        <api-form url="/api/v1/articles">
+                        <api-bound-container url="/api/v1/articles">
                             <template slot-scope="props">
                                 <form v-if="props.results[props.selectedId]" :action="'articles/' + props.results[props.selectedId].id + '/update'" method="POST" enctype="multipart/form-data">
                                     @csrf
@@ -180,7 +180,7 @@
                                     </button>
                                 </form>
                             </template>
-                        </api-form>
+                        </api-bound-container>
                     </div>
                 </div>
             </div>
@@ -188,7 +188,16 @@
     </div>
 
     <div class="tab-pane fade" id="projects-content" role="tabpanel" aria-labelledby="projects-tab">
-
+        <div class="container row">
+            <form class="" action="/projects/fetch" method="post">
+                @csrf
+                <button class="btn btn-primary">Fetch</button>
+            </form>
+            <form class="ml-3" action="projects/update" method="post">
+                @csrf
+                <button class="btn btn-primary">Update</button>
+            </form>
+        </div>
     </div>
 
     <div class="tab-pane fade" id="about-content" role="tabpanel" aria-labelledby="about-tab">
@@ -213,32 +222,32 @@
                 </div>
                 <input type="text" name="page_name" class="form-control" value="{{ config('snowly.page_name') }}">
             </div>
-            <span>Hide sections:</span>
-            <div class="row container mb-3">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection-blog" id="settings-check-hiddensection-blog">
-                    <label class="custom-control-label" for="settings-check-hiddensection-blog">Blog</label>
-                </div>
-                <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection-articles" id="settings-check-hiddensection-articles">
-                    <label class="custom-control-label" for="settings-check-hiddensection-articles">Articles</label>
-                </div>
-                <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection-projects" id="settings-check-hiddensection-projects">
-                    <label class="custom-control-label" for="settings-check-hiddensection-projects">Projects</label>
-                </div>
-                <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection-about" id="settings-check-hiddensection-about">
-                    <label class="custom-control-label" for="settings-check-hiddensection-about">About</label>
-                </div>
-            </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="settings-select-theme">Theme</label>
                 </div>
-                <select class="custom-select" name="theme" required id="settings-select-theme">
+                <select class="custom-select" name="theme" required id="settings-select-theme" disabled>
                     <option>Default</option>
                 </select>
+            </div>
+            <span>Hide sections:</span>
+            <div class="row container mb-3">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection_blog" id="settings-check-hiddensection-blog" disabled>
+                    <label class="custom-control-label" for="settings-check-hiddensection-blog">Blog</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection_articles" id="settings-check-hiddensection-articles" disabled>
+                    <label class="custom-control-label" for="settings-check-hiddensection-articles">Articles</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection_projects" id="settings-check-hiddensection-projects" disabled>
+                    <label class="custom-control-label" for="settings-check-hiddensection-projects">Projects</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection_about" id="settings-check-hiddensection-about" disabled>
+                    <label class="custom-control-label" for="settings-check-hiddensection-about">About</label>
+                </div>
             </div>
             <hr>
             <h5>User Details</h5>
@@ -257,10 +266,6 @@
                     <span class="input-group-text">Password</span>
                 </div>
                 <input type="text" name="password" class="form-control" required>
-                <div class="input-group-prepend ml-3">
-                    <span class="input-group-text">E-mail</span>
-                </div>
-                <input type="text" name="email" class="form-control" value="{{ config('snowly.email') }}">
             </div>
             <hr>
             <h5>Integration</h5>

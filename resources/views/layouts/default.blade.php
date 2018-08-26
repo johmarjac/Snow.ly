@@ -5,7 +5,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" type="text/css" href="/css/default.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <title>{{ config('snowly.page_name') }} - {Page}</title>
+        <title>{{ config('snowly.page_name') }} - @yield('title', '{Page}')</title>
     </head>
     <body>
         @if(session('alert'))
