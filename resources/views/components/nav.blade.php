@@ -1,6 +1,6 @@
 <div id="nav">
     <div id="nav-logo">
-        <span>Snow.ly</span>
+        <span>{{ config('snowly.page_name') }}</span>
     </div>
     <div id="nav-search">
         <form action="/search/" method="GET">

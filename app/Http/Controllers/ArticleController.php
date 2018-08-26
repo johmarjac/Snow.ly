@@ -20,11 +20,6 @@ class ArticleController extends Controller
     {
         $articles = Article::all();
 
-        $articles->each(function($i, $k)
-        {
-            //$i->slug =
-        });
-
         $categories = $articles->pluck('category')->unique();
 
         return view('pages/articles')->with(['articles' => $articles, 'categories' => $categories]);

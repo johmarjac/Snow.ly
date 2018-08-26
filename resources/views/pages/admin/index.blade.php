@@ -3,8 +3,11 @@
 
 @if(session('alert'))
     <br>
-    <div class="alert {{ session('alert')['type'] }}" role="alert">
+    <div class="alert {{ session('alert')['type'] }} alert-dismissible fade show" role="alert">
         {{ session('alert')['text'] }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
 
@@ -26,6 +29,7 @@
     <a class="nav-item nav-link" id="about-tab" data-toggle="tab" href="#about-content" role="tab" aria-controls="about-content" aria-selected="false">About</a>
     <a class="nav-item nav-link" id="settings-tab" data-toggle="tab" href="#settings-content" role="tab" aria-controls="settings-content" aria-selected="false">Settings</a>
 </div>
+
 <div class="tab-content vue">
     <div class="tab-pane fade show active" id="blog-content" role="tabpanel" aria-labelledby="blog-tab">
         <div class="row">
@@ -85,7 +89,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="tab-pane fade" id="articles-content" role="tabpanel" aria-labelledby="articles-tab">
         <div class="row">
@@ -184,19 +187,92 @@
         </div>
     </div>
 
-
     <div class="tab-pane fade" id="projects-content" role="tabpanel" aria-labelledby="projects-tab">
 
     </div>
 
-
     <div class="tab-pane fade" id="about-content" role="tabpanel" aria-labelledby="about-tab">
-
+        <p>In this section of admin panel, you can easily edit your About page and see the results immediately.
+        <br>
+        Things like name or avatar can be changed in the <span class="badge badge-primary">Settings</span> section as they are directly related to the user.</p>
+        <hr>
+        <form action="/about/update" method="POST">
+            @csrf
+            <html-editor inputname="content" input="{{ config('snowly.about_content') }}"></html-editor>
+            <button class="btn btn-success btn-block">Submit</button>
+        </form>
     </div>
 
-
     <div class="tab-pane fade" id="settings-content" role="tabpanel" aria-labelledby="settings-tab">
-
+        <form action="/settings/update" method="POST">
+            @csrf
+            <h5>Website</h5>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Name</span>
+                </div>
+                <input type="text" name="page_name" class="form-control" value="{{ config('snowly.page_name') }}">
+            </div>
+            <span>Hide sections:</span>
+            <div class="row container mb-3">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection-blog" id="settings-check-hiddensection-blog">
+                    <label class="custom-control-label" for="settings-check-hiddensection-blog">Blog</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection-articles" id="settings-check-hiddensection-articles">
+                    <label class="custom-control-label" for="settings-check-hiddensection-articles">Articles</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection-projects" id="settings-check-hiddensection-projects">
+                    <label class="custom-control-label" for="settings-check-hiddensection-projects">Projects</label>
+                </div>
+                <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" name="hiddensection-about" id="settings-check-hiddensection-about">
+                    <label class="custom-control-label" for="settings-check-hiddensection-about">About</label>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="settings-select-theme">Theme</label>
+                </div>
+                <select class="custom-select" name="theme" required id="settings-select-theme">
+                    <option>Default</option>
+                </select>
+            </div>
+            <hr>
+            <h5>User Details</h5>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Name</span>
+                </div>
+                <input type="text" name="name" class="form-control" value="{{ config('snowly.name') }}">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">User</span>
+                </div>
+                <input type="text" name="user" class="form-control" value="{{ config('snowly.user') }}">
+                <div class="input-group-prepend ml-3">
+                    <span class="input-group-text">Password</span>
+                </div>
+                <input type="text" name="password" class="form-control" required>
+                <div class="input-group-prepend ml-3">
+                    <span class="input-group-text">E-mail</span>
+                </div>
+                <input type="text" name="email" class="form-control" value="{{ config('snowly.email') }}">
+            </div>
+            <hr>
+            <h5>Integration</h5>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">GitHub Username</span>
+                </div>
+                <input type="text" name="github_username" class="form-control" value="{{ config('snowly.github_username') }}">
+            </div>
+            <hr>
+            <button class="btn btn-success btn-block">Submit</button>
+        </form>
     </div>
 </div>
 <hr>

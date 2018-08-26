@@ -173,6 +173,11 @@
         margin-right: 4px;
     }
 
+    .htmleditor-input > textarea
+    {
+        height: 100%;
+    }
+
     .htmleditor-output
     {
         background: rgb(255, 255, 255);

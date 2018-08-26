@@ -11,9 +11,12 @@
 |
 */
 
-Route::domain('admin.snowly.dev')->group(function ()
+Route::domain('admin.snowly.dev')->group(function()
 {
     Route::get('/', 'AdminPageController@index');
+    Route::post('/signin', 'AdminPageController@signin');
+    Route::post('/about/update', 'AdminPageController@updateAbout');
+    Route::post('/settings/update', 'AdminPageController@updateSettings');
 });
 
 Route::get('/', 'PostController@index'); //temporary
