@@ -4,19 +4,30 @@
             <div class="htmleditor-toolbar">
                 <i v-for="tool in toolbar" :class="tool.icon" @click="html+=tool.html"></i>
             </div>
-            <textarea rows="16" v-model="html" :name="inputname"></textarea>
+            <textarea rows="16" v-model="minput" :name="inputname"></textarea>
         </div>
-        <div class="htmleditor-output" v-html="html"></div>
+        <div class="htmleditor-output" v-html="minput"></div>
     </div>
 </template>
 
 <script>
     export default
     {
-        props: ['inputname', 'inputvalue'],
+        props: ['inputname', 'input'],
+        watch:
+        {
+            input: function()
+            {
+                this.minput = this.input
+            }
+        },
+        mounted()
+        {
+            this.minput = this.input
+        },
         data: () =>
         ({
-            html: this.inputvalue,
+            minput: '',
             toolbar:
             {
                 bold:
@@ -110,10 +121,6 @@
                 },
             }
         }),
-        mounted()
-        {
-            this.html = this.inputvalue;
-        }
     }
 </script>
 

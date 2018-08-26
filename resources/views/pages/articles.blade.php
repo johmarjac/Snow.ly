@@ -36,11 +36,15 @@
         </form>
     </div>
     <div id="articles-wrapper">
-        @foreach($articles as $article)
-            @component('components/articles/article')
-                @slot('article', $article)
-            @endcomponent
-        @endforeach
+        @if(count($articles)>0)
+            @foreach($articles as $article)
+                @component('components/articles/article')
+                    @slot('article', $article)
+                @endcomponent
+            @endforeach
+        @else
+            <span>There are no articles!</span>
+        @endif
     </div>
 </div>
 @endsection

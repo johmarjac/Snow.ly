@@ -32,6 +32,6 @@ class SearchController extends Controller
 
         $n = $articles->count() + $blog->count();
 
-        return view('pages/search', ['finds' => compact('articles', 'blog'), 'count' => $n]);
+        return view('pages/search')->with(['finds' => compact('articles', 'blog'), 'count' => $n]);
     }
 }

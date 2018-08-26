@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Article;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+    //API
+    public function get()
+    {
+        return Article::all()->toJson();
+    }
+
     public function index()
     {
         $articles = Article::all();
@@ -19,7 +27,7 @@ class ArticleController extends Controller
 
         $categories = $articles->pluck('category')->unique();
 
-        return view('pages/articles', ['articles' => $articles, 'categories' => $categories]);
+        return view('pages/articles')->with(['articles' => $articles, 'categories' => $categories]);
     }
 
     public function create()
@@ -29,7 +37,21 @@ class ArticleController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $article = new Article();
+        $article->slug = slugify($request->name);
+        $article->name = $request->name;
+        $article->tags = $request->tags;
+        $article->category = $request->category;
+        $article->thumbnail = "storage/articles/thumbnails/" . sprintf( 'article_%s.png', DB::table( 'articles' )->max( 'ID' ) + 1 );
+        $article->content = $request->content;
+        $article->description = $request->description;
+        $article->save();
+
+        Storage::disk( 'public' )->put( sprintf( 'articles/thumbnails/article_%s.png', DB::table( 'articles' )->max( 'ID' ) ), file_get_contents( $request->thumbnail ) );
+
+        session()->flash('alert', ['text' => 'Article added successfully!', 'type' => 'alert-success']);
+
+        return redirect()->back();
     }
 
     public function show(string $article)
@@ -39,7 +61,7 @@ class ArticleController extends Controller
         $article->created_at_formatted = $article->created_at->format('jS F Y');
         $article->tags = explode(",", $article->tags);
 
-        return view('pages/article_show', ['article' => $article]);
+        return view('pages/article_show')->with('article', $article);
     }
 
     public function edit(Article $article)
@@ -49,11 +71,28 @@ class ArticleController extends Controller
 
     public function update(Request $request, Article $article)
     {
-        //
+        $article->name = $request->name;
+        $article->tags = $request->tags;
+        $article->category = $request->category;
+        $article->thumbnail = "storage/articles/thumbnails/" . sprintf( 'article_%s.png', $article->id);
+        $article->content = $request->content;
+        $article->description = $request->description;
+        $article->slug = slugify($article->name);
+        $article->save();
+
+        Storage::disk( 'public' )->put( sprintf( 'articles/thumbnails/article_%s.png', $article->id ), file_get_contents( $request->thumbnail ) );
+
+        session()->flash('alert', ['text' => 'Article edited successfully!', 'type' => 'alert-success']);
+
+        return redirect()->back();
     }
 
-    public function destroy(Article $article)
+    public function destroy(Request $request, Article $article)
     {
-        //
+        $article->delete();
+
+        session()->flash('alert', ['text' => 'Article deleted successfully!', 'type' => 'alert-success']);
+
+        return redirect()->back();
     }
 }

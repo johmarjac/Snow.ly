@@ -22,7 +22,7 @@ class PostController extends Controller
             $i->tags = explode(",", $i->tags);
         });
 
-        return view('pages/blog', ['posts' => $posts->reverse()]);
+        return view('pages/blog')->with('posts', $posts->reverse());
     }
 
     public function create()
@@ -39,6 +39,8 @@ class PostController extends Controller
         $post->tags = $request->tags;
         $post->save();
 
+        session()->flash('alert', ['text' => 'Post added successfully!', 'type' => 'alert-success']);
+
         return redirect()->back();
     }
 
@@ -49,11 +51,23 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post)
     {
-        //
+        $post->title = $request->title;
+        $post->tags = $request->tags;
+        $post->text = $request->text;
+        $post->slug = slugify($post->title);
+        $post->save();
+
+        session()->flash('alert', ['text' => 'Post edited successfully!', 'type' => 'alert-success']);
+
+        return redirect()->back();
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
-        //
+        $post->delete();
+
+        session()->flash('alert', ['text' => 'Post deleted successfully!', 'type' => 'alert-success']);
+
+        return redirect()->back();
     }
 }

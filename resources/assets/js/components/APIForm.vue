@@ -1,14 +1,13 @@
 <template>
-    <form :action="action" :method="method">
+    <div>
         <slot :selectedId="selectedId" :results="results"></slot>
-    </form>
+    </div>
 </template>
 
 <script>
     export default
     {
-        props: ['action', 'method', 'url'],
-
+        props: ['url'],
         data: () =>
         ({
             results: [],
