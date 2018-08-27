@@ -38,7 +38,7 @@ class ArticleController extends Controller
             'name' => 'required',
             'tags' => 'required',
             'category' => 'required',
-            'thumbnail' => 'required',
+            'thumbnail' => 'required|image',
             'content' => 'required',
             'description' => 'required'
         ]);
@@ -48,12 +48,12 @@ class ArticleController extends Controller
         $article->name = $request->name;
         $article->tags = $request->tags;
         $article->category = $request->category;
-        $article->thumbnail = "storage/articles/thumbnails/" . sprintf( 'article_%s.png', DB::table( 'articles' )->max( 'ID' ) + 1 );
+        $article->thumbnail = "/storage/articles/thumbnails/" . sprintf( 'article_%s.png', DB::table( 'articles' )->max( 'ID' ) + 1 );
         $article->content = $request->content;
         $article->description = $request->description;
         $article->save();
 
-        Storage::disk( 'public' )->put( sprintf( 'articles/thumbnails/article_%s.png', DB::table( 'articles' )->max( 'ID' ) ), file_get_contents( $request->thumbnail ) );
+        Storage::disk( 'public' )->put( sprintf( '/articles/thumbnails/article_%s.png', DB::table( 'articles' )->max( 'ID' ) ), file_get_contents( $request->thumbnail ) );
 
         session()->flash('alert', ['text' => 'Article added successfully!', 'type' => 'alert-success']);
 
@@ -82,21 +82,24 @@ class ArticleController extends Controller
             'name' => 'required',
             'tags' => 'required',
             'category' => 'required',
-            'thumbnail' => 'required',
+            'thumbnail' => 'image',
             'content' => 'required',
             'description' => 'required'
         ]);
 
+        if($request->hasFile('thumbnail'))
+        {
+            Storage::disk( 'public' )->put( sprintf( '/articles/thumbnails/article_%s.png', $article->id ), file_get_contents( $request->thumbnail ) );
+        }
+
         $article->name = $request->name;
         $article->tags = $request->tags;
         $article->category = $request->category;
-        $article->thumbnail = "storage/articles/thumbnails/" . sprintf( 'article_%s.png', $article->id);
+        $article->thumbnail = "/storage/articles/thumbnails/" . sprintf( 'article_%s.png', $article->id);
         $article->content = $request->content;
         $article->description = $request->description;
         $article->slug = slugify($article->name);
         $article->save();
-
-        Storage::disk( 'public' )->put( sprintf( 'articles/thumbnails/article_%s.png', $article->id ), file_get_contents( $request->thumbnail ) );
 
         session()->flash('alert', ['text' => 'Article edited successfully!', 'type' => 'alert-success']);
 

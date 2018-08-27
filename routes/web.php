@@ -21,6 +21,7 @@ Route::domain('admin.snowly.dev')->group(function()
 
 Route::get('/', 'PostController@index'); //temporary
 Route::get('blog', 'PostController@index');
+Route::get('/blog/sort/', 'PostController@index');
 Route::post('blog', 'PostController@store');
 Route::post('blog/{post}/update', 'PostController@update');
 Route::post('blog/{post}/delete', 'PostController@destroy');

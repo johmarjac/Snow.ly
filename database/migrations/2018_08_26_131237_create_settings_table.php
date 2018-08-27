@@ -25,6 +25,7 @@ class CreateSettingsTable extends Migration
             $table->text('about_content');
             $table->string('page_name')->default('Snow.ly');
             $table->string('hidden_sections')->default('');
+            $table->string('avatar_url')->nullable();
         });
 
         DB::table('settings')->insert(

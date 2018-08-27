@@ -14,19 +14,19 @@
         @endif
     </div>
     <div id="blog-sidepanel">
-        <form action="">
+        <form action="/blog/sort/" method="GET">
             <div class="input-group">
                 <div class="input-group-label">
                     <span>Sort</span>
                 </div>
-                <select name="order">
+                <select class="submit-on-change" name="order">
                     <option value="ascending">ascending</option>
                     <option value="descending">descending</option>
                 </select>
                 <div class="input-group-label">
                     <span>by</span>
                 </div>
-                <select name="by">
+                <select class="submit-on-change" name="by">
                     <option value="date">date</option>
                     <option value="title">title</option>
                 </select>

@@ -213,7 +213,7 @@
     </div>
 
     <div class="tab-pane fade" id="settings-content" role="tabpanel" aria-labelledby="settings-tab">
-        <form action="/settings/update" method="POST">
+        <form action="/settings/update" method="POST" enctype="multipart/form-data">
             @csrf
             <h5>Website</h5>
             <div class="input-group mb-3">
@@ -266,6 +266,19 @@
                     <span class="input-group-text">Password</span>
                 </div>
                 <input type="text" name="password" class="form-control" required>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Avatar</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="avatar" id="settings-avatar-file">
+                    <label class="custom-file-label" for="settings-avatar-file"></label>
+                </div>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" name="use_github_avatar" id="settings-check-use-github-avatar">
+                <label class="custom-control-label" for="settings-check-use-github-avatar">Use avatar from GitHub</label>
             </div>
             <hr>
             <h5>Integration</h5>

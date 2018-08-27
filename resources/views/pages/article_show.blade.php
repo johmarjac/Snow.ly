@@ -25,7 +25,9 @@
         </div>
     </div>
     <div id="article-show-menu" class="vue">
-        thumbnail
+        <div id="article-show-menu-image">
+            <img src="{{ $article->thumbnail }}"/>
+        </div>
         <header-menu></header-menu>
     </div>
 </div>

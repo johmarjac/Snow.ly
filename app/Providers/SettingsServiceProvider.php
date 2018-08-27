@@ -28,6 +28,7 @@ class SettingsServiceProvider extends ServiceProvider
         $settings = DB::table('settings')->get()->first();
         config(['snowly.name' => $settings->name]);
         config(['snowly.user' => $settings->user]);
+        config(['snowly.avatar_url' => $settings->avatar_url]);
         config(['snowly.password' => $settings->password]);
         config(['snowly.github_username' => $settings->github_username]);
         config(['snowly.theme' => $settings->theme]);

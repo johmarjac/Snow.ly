@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class AdminPageController extends Controller
@@ -19,8 +20,33 @@ class AdminPageController extends Controller
             'password' => 'required',
             'email' => 'required',
             'content' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'avatar' => 'image'
         ]);
+
+        $avatar_url = '/storage/content/avatar.png';
+
+        if($request->hasFile('avatar'))
+        {
+            Storage::disk( 'public' )->put( '/content/avatar.png', file_get_contents( $request->avatar ) );
+        }
+
+        if($request->use_github_avatar)
+        {
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . config('snowly.github_username'));
+            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+            curl_setopt($curl, CURLOPT_USERAGENT, 'Snowly');
+            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+
+            $content = curl_exec($curl);
+            curl_close($curl);
+
+            $data = json_decode( $content, true );
+
+            $avatar_url = $data['avatar_url'];
+        }
 
         DB::table('settings')->update(
         [
@@ -30,6 +56,7 @@ class AdminPageController extends Controller
             'github_username' => $request->github_username,
             'theme' => $request->theme ?? '',
             'page_name' => $request->page_name,
+            'avatar_url' => $avatar_url ?? config('snowly.avatar_url'),
             'hidden_sections' => implode(',', [$request->hiddensection_blog, $request->hiddensection_articles, $request->hiddensection_about, $request->hiddensection_projects])
         ]);
 

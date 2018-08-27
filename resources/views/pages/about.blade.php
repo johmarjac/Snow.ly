@@ -5,7 +5,7 @@
     <div id="about-container">
         <div id="about-header">
             <div>
-                <img src="https://avatars1.githubusercontent.com/u/30983493?s=460&v=4">
+                <img src="{{ config('snowly.avatar_url') }}">
             </div>
             <span>{!! config('snowly.name') !!}</span>
         </div>

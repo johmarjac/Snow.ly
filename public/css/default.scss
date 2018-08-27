@@ -468,14 +468,18 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
     > div
     {
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
         border-radius: 6px;
         width: 128px;
         height: 128px;
-        overflow: hidden;
 
         > img
         {
             height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -662,6 +666,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     > img
     {
         width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 }
@@ -696,6 +701,8 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 80%;
     overflow-x: hidden;
 }
 
@@ -724,6 +731,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     display: flex;
     flex-direction: column;
     padding: 16px;
+    height: 100%;
     border-left: 1px solid lighten($gray, 70%);
 
     > h3, > h4
@@ -782,13 +790,28 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    flex-basis: 1*20%;
+    flex-basis: 20%;
     padding: 16px;
     border: 1px solid lighten($gray, 70%);
     border-left: 1px solid lighten($gray, 78%);
     border-radius: 3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+#article-show-menu-image
+{
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+
+    > img
+    {
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 #contact
