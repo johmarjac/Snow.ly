@@ -12,7 +12,7 @@ class PostController extends Controller
     //API
     public function get()
     {
-        return Post::all()->toJson();
+        return "<pre>" . Post::all()->toJson() . "</pre>";
     }
 
     public function index()

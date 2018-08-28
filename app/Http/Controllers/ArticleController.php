@@ -14,7 +14,7 @@ class ArticleController extends Controller
     //API
     public function get()
     {
-        return Article::all()->toJson();
+        return "<pre>" . Article::all()->toJson() . "</pre>";
     }
 
     public function index()
