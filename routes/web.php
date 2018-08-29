@@ -20,13 +20,15 @@ Route::domain('admin.snowly.dev')->group(function()
 });
 
 Route::get('/', 'PostController@index'); //temporary
-Route::get('blog', 'PostController@index');
-Route::get('/blog/sort/', 'PostController@index');
+
+Route::get('blog/', 'PostController@index');
+Route::get('blog/sort/{order?}/{by?}/', 'PostController@index');
 Route::post('blog', 'PostController@store');
 Route::post('blog/{post}/update', 'PostController@update');
 Route::post('blog/{post}/delete', 'PostController@destroy');
 
-Route::get('articles', 'ArticleController@index');
+Route::get('articles/', 'ArticleController@index');
+Route::get('articles/sort/{order?}/{by?}/{filter?}', 'ArticleController@index');
 Route::get('articles/{article}', 'ArticleController@show');
 Route::post('articles', 'ArticleController@store');
 Route::post('articles/{article}/update', 'ArticleController@update');

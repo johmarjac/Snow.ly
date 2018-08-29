@@ -30,7 +30,7 @@
     <a class="nav-item nav-link" id="settings-tab" data-toggle="tab" href="#settings-content" role="tab" aria-controls="settings-content" aria-selected="false">Settings</a>
 </div>
 
-<div class="tab-content vue">
+<div class="tab-content">
     <div class="tab-pane fade show active" id="blog-content" role="tabpanel" aria-labelledby="blog-tab">
         <div class="row">
             <div class="col-2">

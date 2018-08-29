@@ -12,18 +12,26 @@ class PostController extends Controller
     //API
     public function get()
     {
-        return "<pre>" . Post::all()->toJson() . "</pre>";
+        return Post::all()->toJson();
     }
 
-    public function index()
+    public function index($order = null, $by = null)
     {
+        $order = $order ?? 'descending';
+        $by = $by ?? 'date';
+
         $posts = Post::all()->each(function($i, $k)
         {
             $i->created_at_formatted = $i->created_at->format('jS F Y');
             $i->tags = explode(",", $i->tags);
         });
 
-        return view('pages/blog')->with('posts', $posts->reverse());
+        $posts = $posts->sortBy($by);
+
+        if($order == 'descending')
+            $posts = $posts->reverse();
+
+        return view('pages/blog')->with(['posts' => $posts, 'order' => $order, 'by' => $by]);
     }
 
     public function create()

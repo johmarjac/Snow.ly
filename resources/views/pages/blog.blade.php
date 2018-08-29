@@ -14,24 +14,24 @@
         @endif
     </div>
     <div id="blog-sidepanel">
-        <form action="/blog/sort/" method="GET">
+        <reactive-form action="/blog/sort/{order}/{by}">
             <div class="input-group">
                 <div class="input-group-label">
                     <span>Sort</span>
                 </div>
                 <select class="submit-on-change" name="order">
-                    <option value="ascending">ascending</option>
-                    <option value="descending">descending</option>
+                    <option value="ascending" {{ $order == 'ascending' ? 'selected' : '' }}>ascending</option>
+                    <option value="descending" {{ $order == 'descending' ? 'selected' : '' }}>descending</option>
                 </select>
                 <div class="input-group-label">
                     <span>by</span>
                 </div>
                 <select class="submit-on-change" name="by">
-                    <option value="date">date</option>
-                    <option value="title">title</option>
+                    <option value="date" {{ $by == 'date' ? 'selected' : '' }}>date</option>
+                    <option value="title" {{ $by == 'title' ? 'selected' : '' }}>title</option>
                 </select>
             </div>
-        </form>
+        </reactive-form>
     </div>
 </div>
 @endsection

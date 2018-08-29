@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div id="article-show-menu" class="vue">
+    <div id="article-show-menu">
         <div id="article-show-menu-image">
             <img src="{{ $article->thumbnail }}"/>
         </div>

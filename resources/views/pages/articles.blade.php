@@ -3,38 +3,38 @@
 @section('content')
 <div id="articles">
     <div id="articles-menu">
-        <form action="">
+        <reactive-form action="/articles/sort/{order}/{by}">
             <div class="input-group">
                 <div class="input-group-label">
                     <span>Sort</span>
                 </div>
-                <select name="order">
-                    <option value="ascending">ascending</option>
-                    <option value="descending">descending</option>
+                <select class="submit-on-change" name="order">
+                    <option value="ascending" {{ $order == 'ascending' ? 'selected' : '' }}>ascending</option>
+                    <option value="descending" {{ $order == 'descending' ? 'selected' : '' }}>descending</option>
                 </select>
                 <div class="input-group-label">
                     <span>by</span>
                 </div>
-                <select name="by">
-                    <option value="date">date</option>
-                    <option value="title">title</option>
-                    <option value="category">category</option>
+                <select class="submit-on-change" name="by">
+                    <option value="date" {{ $by == 'date' ? 'selected' : '' }}>date</option>
+                    <option value="name" {{ $by == 'name' ? 'selected' : '' }}>name</option>
+                    <option value="category" {{ $by == 'category' ? 'selected' : '' }}>category</option>
                 </select>
             </div>
-        </form>
-        <form action="" class="flexitem-right">
+        </reactive-form>
+        <reactive-form action="/articles/sort/{{$order}}/{{$by}}/{filter}" class="flexitem-right">
             <div class="input-group">
                 <div class="input-group-label">
                     <span>Category</span>
                 </div>
-                <select name="category">
-                    <option value="*">*</option>
+                <select class="submit-on-change" name="filter">
+                    <option value="none" {{ $filter == 'none' ? 'selected' : '' }} >*</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category }}">{{ $category }}</option>
+                        <option value="{{ $category }}"  {{ $filter == $category ? 'selected' : '' }} >{{ $category }}</option>
                     @endforeach
                 </select>
             </div>
-        </form>
+        </reactive-form>
     </div>
     <div id="articles-wrapper">
         @if(count($articles)>0)

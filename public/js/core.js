@@ -7,6 +7,12 @@ $( document ).ready(function()
 
     $('.submit-on-change').change(function(e)
     {
-        $( this ).closest('form').submit();
+        $( this ).each(function(i, e)
+        {
+            if( e.closest('form').__vue__ )
+                e.closest('form').__vue__.onSubmit()
+            else
+                $( this ).closest('form').submit()
+        })
     })
 })

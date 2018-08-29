@@ -11,7 +11,7 @@ class ProjectController extends Controller
     //API
     public function get()
     {
-        return "<pre>" . Project::all()->sortByDesc('stars')->values()->toJson() . "</pre>";
+        return Project::all()->sortByDesc('stars')->values()->toJson();
     }
     /**
      * Display a listing of the resource.

@@ -14,16 +14,37 @@ class ArticleController extends Controller
     //API
     public function get()
     {
-        return "<pre>" . Article::all()->toJson() . "</pre>";
+        return Article::all()->toJson();
     }
 
-    public function index()
+    public function index($order = null, $by = null, $filter = null)
     {
-        $articles = Article::all();
+        $order = $order ?? 'descending';
+        $by = $by ?? 'date';
+        $filter = $filter ?? 'none';
+
+        $articles = Article::all()->each(function($i, $k)
+        {
+            $i->created_at_formatted = $i->created_at->format('jS F Y');
+            $i->tags = explode(",", $i->tags);
+        });
 
         $categories = $articles->pluck('category')->unique();
 
-        return view('pages/articles')->with(['articles' => $articles, 'categories' => $categories]);
+        if($filter != 'none')
+        {
+            $articles = $articles->filter(function($value, $key) use ($filter)
+            {
+                return $value->category == $filter;
+            });
+        }
+
+        $articles = $articles->sortBy($by);
+
+        if($order == 'descending')
+            $articles = $articles->reverse();
+
+        return view('pages/articles')->with(['articles' => $articles, 'categories' => $categories, 'order' => $order, 'by' => $by, 'filter' => $filter]);
     }
 
     public function create()

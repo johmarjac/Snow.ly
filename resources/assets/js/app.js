@@ -27,6 +27,7 @@ window.FontAwesomeConfig =
 Vue.component('header-menu', require('./components/HeaderMenu.vue'));
 Vue.component('html-editor', require('./components/HTMLEditor.vue'));
 Vue.component('api-bound-container', require('./components/APIBoundContainer.vue'));
+Vue.component('reactive-form', require('./components/ReactiveForm.vue'));
 
 Vue.config.productionTip = false;
 
