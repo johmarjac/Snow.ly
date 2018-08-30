@@ -1,5 +1,5 @@
 <template>
-    <ul id="header-menu">
+    <ul id="header-menu" v-if="headers.length > 1">
         <li v-for="header in headers">
             <a :href="header.link">{{ header.text }}</a>
             <ul>

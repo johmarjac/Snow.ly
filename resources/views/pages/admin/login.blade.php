@@ -1,13 +1,6 @@
 @extends('layouts/admin')
 @section('content')
 
-@if(session('alert'))
-    <br>
-    <div class="alert {{ session('alert')['type'] }} d-flex p-2" role="alert">
-        {{ session('alert')['text'] }}
-    </div>
-@endif
-
 <div class="row mt-5">
     <form class="col-5 mx-auto row" action="/signin" method="POST">
         @csrf

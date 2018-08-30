@@ -223,6 +223,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 #header-menu
 {
     margin: 0;
+    margin-top: 16px;
     font-family: $fontMain;
     font-weight: 700;
 
@@ -805,7 +806,6 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    margin-bottom: 16px;
 
     > img
     {

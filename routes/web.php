@@ -40,5 +40,7 @@ Route::get('projects', 'ProjectController@index');
 Route::post('projects/fetch', 'ProjectController@fetch');
 Route::post('projects/update', 'ProjectController@update');
 
+Route::post('message', 'MessageController@store');
+
 Route::view('contact', 'pages/contact');
 Route::view('about', 'pages/about');

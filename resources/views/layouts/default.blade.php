@@ -13,6 +13,7 @@
         @if(session('alert'))
             @component('components/alert')
                 @slot('message', "Post made.")
+                @slot('type', 'green')
             @endcomponent
         @endif
         @include('components/nav')

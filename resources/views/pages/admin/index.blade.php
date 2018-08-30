@@ -1,24 +1,11 @@
 @extends('layouts/admin')
 @section('content')
 
-@if(session('alert'))
-    <br>
-    <div class="alert {{ session('alert')['type'] }} alert-dismissible fade show" role="alert">
-        {{ session('alert')['text'] }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-@endif
-
 <br>
 <div class="alert alert-info" role="alert">
     <h3>Welcome!</h3>
     <p>This admin panel will help you to maintain your website, configure every aspect of it and add or manage
-    existing content.
-    <br><br>
-    If you haven't changed a password from 'snow.ly' to your own password yet, an alert should pop
-    every time you log into admin panel.</p>
+    existing content.</p>
 </div>
 <hr>
 

@@ -17,12 +17,8 @@ class ArticleController extends Controller
         return Article::all()->toJson();
     }
 
-    public function index($order = null, $by = null, $filter = null)
+    public function index($order = 'descending', $by = 'date', $filter = 'none')
     {
-        $order = $order ?? 'descending';
-        $by = $by ?? 'date';
-        $filter = $filter ?? 'none';
-
         $articles = Article::all()->each(function($i, $k)
         {
             $i->created_at_formatted = $i->created_at->format('jS F Y');
