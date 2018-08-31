@@ -17,6 +17,9 @@ class PostController extends Controller
 
     public function index($order = null, $by = null)
     {
+        if(config('snowly.hidden_sections.blog'))
+            abort(404);
+
         $order = $order ?? 'descending';
         $by = $by ?? 'date';
 
@@ -51,7 +54,7 @@ class PostController extends Controller
         if($validator->fails())
         {
             session()->flash('alert', ['text' => $validator->messages()->first(), 'type' => 'alert-danger']);
-            
+
             return redirect()->back();
         }
 

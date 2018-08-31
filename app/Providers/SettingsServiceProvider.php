@@ -35,5 +35,13 @@ class SettingsServiceProvider extends ServiceProvider
         config(['snowly.about_content' => $settings->about_content]);
         config(['snowly.page_name' => $settings->page_name]);
         config(['snowly.hidden_sections' => $settings->hidden_sections]);
+
+        $sections = array();
+        foreach (explode(',', $settings->hidden_sections) as $section)
+        {
+            $sections[$section] = true;
+        }
+
+        config(['snowly.hidden_sections' => $sections]);
     }
 }

@@ -221,19 +221,19 @@
             <span>Hide sections:</span>
             <div class="row container mb-3">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection_blog" id="settings-check-hiddensection-blog" disabled>
+                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.blog') ? 'checked' : '' }} name="hiddensection_blog" id="settings-check-hiddensection-blog">
                     <label class="custom-control-label" for="settings-check-hiddensection-blog">Blog</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection_articles" id="settings-check-hiddensection-articles" disabled>
+                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.articles') ? 'checked' : '' }} name="hiddensection_articles" id="settings-check-hiddensection-articles">
                     <label class="custom-control-label" for="settings-check-hiddensection-articles">Articles</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection_projects" id="settings-check-hiddensection-projects" disabled>
+                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.projects') ? 'checked' : '' }} name="hiddensection_projects" id="settings-check-hiddensection-projects">
                     <label class="custom-control-label" for="settings-check-hiddensection-projects">Projects</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" name="hiddensection_about" id="settings-check-hiddensection-about" disabled>
+                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.about') ? 'checked' : '' }} name="hiddensection_about" id="settings-check-hiddensection-about">
                     <label class="custom-control-label" for="settings-check-hiddensection-about">About</label>
                 </div>
             </div>

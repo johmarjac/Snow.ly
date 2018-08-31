@@ -11,10 +11,18 @@
         </form>
     </div>
     <div id="nav-menu">
-        <span><a href="/"><i class="far fa-comment-dots"></i> Blog</a></span>
-        <span><a href="/articles"><i class="fas fa-paperclip"></i> Articles</a></span>
-        <span><a href="/projects"><i class="far fa-clipboard"></i> Projects</a></span>
-        <span><a href="/about"><i class="far fa-address-card"></i> About</a></span>
+        @if(!config('snowly.hidden_sections.blog'))
+            <span><a href="/blog"><i class="far fa-comment-dots"></i> Blog</a></span>
+        @endif
+        @if(!config('snowly.hidden_sections.articles'))
+            <span><a href="/articles"><i class="fas fa-paperclip"></i> Articles</a></span>
+        @endif
+        @if(!config('snowly.hidden_sections.projects'))
+            <span><a href="/projects"><i class="far fa-clipboard"></i> Projects</a></span>
+        @endif
+        @if(!config('snowly.hidden_sections.about'))
+            <span><a href="/about"><i class="far fa-address-card"></i> About</a></span>
+        @endif
         <span><a href="/contact"><i class="far fa-envelope"></i> Contact</a></span>
     </div>
 </div>

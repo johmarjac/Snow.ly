@@ -56,7 +56,13 @@ class AdminPageController extends Controller
             'theme' => $request->theme ?? '',
             'page_name' => $request->page_name,
             'avatar_url' => $avatar_url ?? config('snowly.avatar_url'),
-            'hidden_sections' => implode(',', [$request->hiddensection_blog, $request->hiddensection_articles, $request->hiddensection_about, $request->hiddensection_projects])
+            'hidden_sections' => implode(',',
+            [
+                $request->hiddensection_blog == 'on' ? 'blog' : '',
+                $request->hiddensection_articles == 'on' ? 'articles' : '',
+                $request->hiddensection_about == 'on' ? 'about' : '',
+                $request->hiddensection_projects == 'on' ? 'projects' : ''
+            ])
         ]);
 
         session()->flash('alert', ['text' => "Settings updated successfully.", 'type' => 'alert-success']);

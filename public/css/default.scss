@@ -220,6 +220,62 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     }
 }
 
+#landing-container
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#landing-logo
+{
+    font-family: $fontAlt;
+    font-size: 64px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+#landing-nav
+{
+    display: flex;
+
+    > span
+    {
+        font-size: 24px;
+        padding: 0 16px;
+    }
+
+    > span:not(:last-of-type)
+    {
+        border-right: 1px dotted $gray;
+    }
+}
+
+#error-page
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error-page-bg
+{
+    z-index: -1;
+    position: absolute;
+    font-size: 256px;
+    color: lighten($gray, 75%);
+}
+
+#error-page-message
+{
+    font-size: 32px;
+}
+
 #header-menu
 {
     margin: 0;

@@ -16,13 +16,16 @@ class ProjectController extends Controller
 
     public function index()
     {
+        if(config('snowly.hidden_sections.projects'))
+            abort(404);
+
         return view('pages/projects')->with(['projects' => Project::all()->sortByDesc('stars')]);
     }
 
     public function fetch()
     {
         if(!session('admin'))
-            return view('/');
+            abort(403);
 
         //Clear database first
         DB::table('projects')->truncate();
@@ -62,7 +65,7 @@ class ProjectController extends Controller
     public function update()
     {
         if(!session('admin'))
-            return view('/');
+            abort(403);
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . config('snowly.github_username') . '/repos');
