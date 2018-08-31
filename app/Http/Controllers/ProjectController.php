@@ -13,11 +13,7 @@ class ProjectController extends Controller
     {
         return Project::all()->sortByDesc('stars')->values()->toJson();
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view('pages/projects')->with(['projects' => Project::all()->sortByDesc('stars')]);
@@ -26,9 +22,7 @@ class ProjectController extends Controller
     public function fetch()
     {
         if(!session('admin'))
-        {
             return view('/');
-        }
 
         //Clear database first
         DB::table('projects')->truncate();
@@ -68,9 +62,7 @@ class ProjectController extends Controller
     public function update()
     {
         if(!session('admin'))
-        {
             return view('/');
-        }
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . config('snowly.github_username') . '/repos');
@@ -89,9 +81,7 @@ class ProjectController extends Controller
             $project = Project::where('name', 'like', $repo['name'])->get()->first();
 
             if(!$project)
-            {
                 continue;
-            }
 
             $project->name = $repo['name'];
             $project->description = $repo['description'];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -27,9 +28,7 @@ class AdminPageController extends Controller
         $avatar_url = '/storage/content/avatar.png';
 
         if($request->hasFile('avatar'))
-        {
             Storage::disk( 'public' )->put( '/content/avatar.png', file_get_contents( $request->avatar ) );
-        }
 
         if($request->use_github_avatar)
         {
@@ -92,9 +91,7 @@ class AdminPageController extends Controller
             session(['admin' => true]);
 
             if( Hash::check($request->password, 'snow.ly') )
-            {
                 session()->flash('alert', ['text' => "You still haven't changed your password from 'snow.ly' - this is a security risk!", 'type' => 'alert-danger']);
-            }
 
             return redirect()->action('AdminPageController@index');
         }
@@ -104,18 +101,11 @@ class AdminPageController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         if(!session('admin'))
-        {
             return view('pages/admin/login');
-        }
 
-        return view('pages/admin/index');
+        return view('pages/admin/index')->with(['messages' => Message::all()]);
     }
 }

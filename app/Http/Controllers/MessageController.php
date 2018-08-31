@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-use App\Message;
-
 class MessageController extends Controller
 {
+    //API
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),

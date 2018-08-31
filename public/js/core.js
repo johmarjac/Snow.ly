@@ -15,4 +15,9 @@ $( document ).ready(function()
                 $( this ).closest('form').submit()
         })
     })
+
+    $('* [data-close-on-click]').click(function(e)
+    {
+        $( this ).closest($( this ).data('close-on-click')).remove();
+    })
 })

@@ -15,6 +15,7 @@
     <a class="nav-item nav-link" id="projects-tab" data-toggle="tab" href="#projects-content" role="tab" aria-controls="projects-content" aria-selected="false">Projects</a>
     <a class="nav-item nav-link" id="about-tab" data-toggle="tab" href="#about-content" role="tab" aria-controls="about-content" aria-selected="false">About</a>
     <a class="nav-item nav-link" id="settings-tab" data-toggle="tab" href="#settings-content" role="tab" aria-controls="settings-content" aria-selected="false">Settings</a>
+    <a class="nav-item nav-link" id="contact-tab" data-toggle="tab" href="#contact-content" role="tab" aria-controls="contact-content" aria-selected="false">Contact</a>
 </div>
 
 <div class="tab-content">
@@ -278,6 +279,33 @@
             <hr>
             <button class="btn btn-success btn-block">Submit</button>
         </form>
+    </div>
+
+    <div class="tab-pane fade" id="contact-content" role="tabpanel" aria-labelledby="contact-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">From</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($messages as $message)
+                    <tr>
+                        <th scope="row">{{ $message->id }}</th>
+                        <td>{{ $message->name }}</td>
+                        <td>{{ $message->email }}</td>
+                        <td>{{ $message->subject }}</td>
+                        <td>{{ $message->message }}</td>
+                        <td>ACTIONS</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 <hr>

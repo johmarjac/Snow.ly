@@ -1,5 +1,5 @@
 <template>
-    <ul id="header-menu" v-if="headers.length > 1">
+    <ul id="header-menu" v-if="headers.length > 0">
         <li v-for="header in headers">
             <a :href="header.link">{{ header.text }}</a>
             <ul>
@@ -26,6 +26,7 @@
         $(e).prepend(`<a name='${header.link}'></a>`)
 
         header.link = "#" + header.link
+
         if(e.tagName == "H3")
         {
             header.subheaders = []
@@ -37,6 +38,9 @@
             headers[headers.length - 1].subheaders.push(header)
         }
     })
+
+    if( $( 'h3, h4' ).length == 0 )
+        headers = []
 
     export default
     {

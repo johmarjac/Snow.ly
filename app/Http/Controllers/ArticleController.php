@@ -105,9 +105,7 @@ class ArticleController extends Controller
         ]);
 
         if($request->hasFile('thumbnail'))
-        {
             Storage::disk( 'public' )->put( sprintf( '/articles/thumbnails/article_%s.png', $article->id ), file_get_contents( $request->thumbnail ) );
-        }
 
         $article->name = $request->name;
         $article->tags = $request->tags;

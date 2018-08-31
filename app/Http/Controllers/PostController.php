@@ -51,6 +51,7 @@ class PostController extends Controller
         if($validator->fails())
         {
             session()->flash('alert', ['text' => $validator->messages()->first(), 'type' => 'alert-danger']);
+            
             return redirect()->back();
         }
 

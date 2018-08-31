@@ -5,7 +5,7 @@
     <div class="alert-message">
         {{ $message }}
     </div>
-    <div class="alert-button">
+    <div class="alert-button" data-close-on-click="alert">
         <i class="far fa-times-circle"></i>
     </div>
 </div>
