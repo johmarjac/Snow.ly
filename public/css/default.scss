@@ -220,6 +220,42 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     }
 }
 
+.label
+{
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-family: $fontTiny;
+    line-height: 12px;
+    border-radius: 3px;
+    padding: 4px 6px;
+    font-weight: 700;
+    border: 1px dotted $gray;
+    color: $gray;
+}
+
+.note
+{
+    display: flex;
+    width: 100%;
+    padding-left: 8px;
+    border-left: 3px solid $blue;
+    color: $blue;
+    white-space: pre;
+}
+
+.highlighter
+{
+    background: $blue;
+    padding: 0 2px;
+    color: white;
+}
+
+.code-container
+{
+    background: lighten($gray, 75%);
+}
+
 #landing-container
 {
     width: 100vw;
@@ -785,6 +821,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 #article-show-content
 {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     padding: 16px;
     height: 100%;
@@ -799,6 +836,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     > p:not(:last-child)
     {
         margin-bottom: 16px;
+    }
+
+    > .note
+    {
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
 }
 

@@ -90,12 +90,6 @@
                     html: '<img src=""/>',
                 },
 
-                media:
-                {
-                    icon: 'fab fa-fw fa-youtube',
-                    html: '<div class="media"></div>',
-                },
-
                 label:
                 {
                     icon: 'fas fa-fw fa-square',
@@ -105,7 +99,7 @@
                 note:
                 {
                     icon: 'fas fa-fw fa-comment-dots',
-                    html: '<div class="note blue">\n</div>',
+                    html: '<div class="note">\n</div>',
                 },
 
                 highlight:
@@ -117,7 +111,7 @@
                 code:
                 {
                     icon: 'fas fa-fw fa-code',
-                    html: '<pre class="code"></pre>',
+                    html: '<div class="codecontainer"><codeblock></codeblock></div>',
                 },
             }
         }),
