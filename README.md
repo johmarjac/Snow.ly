@@ -1,2 +1,2 @@
 # Snow.ly
-A highly versatile CMS built for programmers
+A small, simple and efficient CMS built for programmers
