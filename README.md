@@ -18,12 +18,12 @@ All posts have a link attached to them, so you can link people directly to the p
 
 ### Articles page
 The articles page is cut into a grid, you can easily find what you are looking for thanks to the filtering and sorting options.
-![https://i.imgur.com/undefined.jpg](https://i.imgur.com/undefined.jpg)
-![https://i.imgur.com/undefined.jpg](https://i.imgur.com/undefined.jpg)
+![https://i.imgur.com/mltrbbC.jpg](https://i.imgur.com/mltrbbC.jpg)
+![https://i.imgur.com/xPioYe8.jpg](https://i.imgur.com/xPioYe8.jpg)
 
 ### Projects page
 The projects page is very simple - it fetches projects directly from github using API and your username.
-![https://i.imgur.com/undefined.jpg](https://i.imgur.com/undefined.jpg)
+![https://i.imgur.com/uLXAxtf.jpg](https://i.imgur.com/uLXAxtf.jpg)
 
 ### About page
 The about page consists of a side-menu that'll help readers navigate through the page, the header containing your avatar and name, the content section that is fully editable to suit your needs.
