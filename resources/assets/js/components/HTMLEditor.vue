@@ -107,12 +107,6 @@
                     icon: 'fas fa-fw fa-highlighter',
                     html: '<span class="highlighter"></span>',
                 },
-
-                code:
-                {
-                    icon: 'fas fa-fw fa-code',
-                    html: '<div class="codecontainer"><codeblock></codeblock></div>',
-                },
             }
         }),
     }

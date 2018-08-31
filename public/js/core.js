@@ -16,7 +16,7 @@ $( document ).ready(function()
         })
     })
 
-    $('* [data-close-on-click]').click(function(e)
+    $('*[data-close-on-click]').click(function(e)
     {
         $( this ).closest($( this ).data('close-on-click')).remove();
     })

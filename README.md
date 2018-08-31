@@ -6,6 +6,12 @@ Snowly was (at first) created for my friends who needed a quick website that wou
 
 While the whole system isn't very robust, it was more of a learning experience for me, but since my friends really enjoyed the outcome and use it on a daily basis - I've decided to release it to the public.
 
+## Bugs and planned improvements
+
+- Fix HTML Editor not scoping the style properly
+- Add support for Sharex uploads
+- Allow setting up webhooks for Projects rather than manual fetch
+
 ## Which pages are covered
 ### Landing page
 Snowly comes with a simple landing page to make it loook more prestigious than it really is /wink wink/
