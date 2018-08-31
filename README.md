@@ -29,6 +29,9 @@ The projects page is very simple - it fetches projects directly from github usin
 The about page consists of a side-menu that'll help readers navigate through the page, the header containing your avatar and name, the content section that is fully editable to suit your needs.
 ![https://i.imgur.com/w2tNFts.jpg](https://i.imgur.com/w2tNFts.jpg)
 
+### Error pages
+Two error pages are styled in Snowly - 404 and 403, but if you want to add more you can just copy-paste them, rename them and edit the contents - it's that simple!
+
 ### Contact page
 It's just a simple form connected to the admin panel - all messages sent through it are stored in the database and browsable through the admin panel.
 
