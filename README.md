@@ -1,2 +1,3 @@
 # Snow.ly
-A small, simple and efficient CMS built for programmers
+
+Snowly is a simple CMS built using Laravel & Vue.js.
