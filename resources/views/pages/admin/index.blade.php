@@ -301,7 +301,7 @@
                         <td>{{ $message->email }}</td>
                         <td>{{ $message->subject }}</td>
                         <td>{{ $message->message }}</td>
-                        <td>ACTIONS</td>
+                        <td><a href="/message/{{ $message->id }}/delete">Delete</a></td>
                     </tr>
                 @endforeach
             </tbody>

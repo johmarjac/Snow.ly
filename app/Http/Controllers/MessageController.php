@@ -19,14 +19,26 @@ class MessageController extends Controller
             'message' => 'required',
         ]);
 
-        $article = new Message();
-        $article->name = $request->name;
-        $article->email = $request->email;
-        $article->subject = $request->subject;
-        $article->message = $request->message;
-        $article->save();
+        $message = new Message();
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->subject = $request->subject;
+        $message->message = $request->message;
+        $message->save();
 
         session()->flash('alert', ['text' => 'Message sent successfully!', 'type' => 'green']);
+
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request, Message $message)
+    {
+        if(!session('admin'))
+            abort(403);
+
+        $message->delete();
+
+        session()->flash('alert', ['text' => 'Message deleted successfully!', 'type' => 'alert-success']);
 
         return redirect()->back();
     }

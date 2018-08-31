@@ -56,8 +56,7 @@ class ProjectController extends Controller
             $project->save();
         }
 
-        session()->flash('alert', ['text' => count( $repos ) . ' projects fetched successfully. Do not use this function too often to prevent yourself from getting temporarily API locked.
-        This will later be hooked to webhooks for ease of use and automatic fetching - if you want to update your project\'s score, just click "Update".', 'type' => 'alert-success']);
+        session()->flash('alert', ['text' => count( $repos ) . ' projects fetched successfully. Do not use this function too often to prevent yourself from getting temporarily API locked.', 'type' => 'alert-success']);
 
         return redirect()->back();
     }

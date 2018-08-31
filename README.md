@@ -36,4 +36,6 @@ Two error pages are styled in Snowly - 404 and 403, but if you want to add more 
 It's just a simple form connected to the admin panel - all messages sent through it are stored in the database and browsable through the admin panel.
 
 ### Admin panel
-Not much can be said about it - it's just a simple control panel that allows you to add and manage content, edit your about page, adjust settings and read messages.
+The admin panel is a simple panel containing forms for creation and management of resources, aswell as a HTML editor with a live preview that can be used for these resources or the about page.
+
+It also has a tab for edition of settings and a tab to fetch and update projects directly from github.
