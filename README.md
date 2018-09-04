@@ -17,6 +17,7 @@ While the whole system isn't very robust, it was more of a learning experience f
 I haven't setup a proper environment for the preview, but here's a pack of screenshots:
 
 ![](https://i.imgur.com/1ACLfJz.jpg)
+![](https://i.imgur.com/MZIzZvA.jpg)
 ![](https://i.imgur.com/lBrjkgA.jpg)
 ![](https://i.imgur.com/CeBPmET.jpg)
 ![](https://i.imgur.com/Pr9YKTP.jpg)
