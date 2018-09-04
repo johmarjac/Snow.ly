@@ -24,3 +24,8 @@ I haven't setup a proper environment for the preview, but here's a pack of scree
 ![](https://i.imgur.com/TeV2ZHX.jpg)
 ![](https://i.imgur.com/Y200TWx.jpg)
 ![](https://i.imgur.com/tIb1oyJ.jpg)
+
+## Known bugs
+
+- HTML Editor's preview doesn't have style applied to it properly - it's caused by Vue.js scoping system and will be fixed soon.
+- Theme system isn't added despite it being listed in the admin panel.
