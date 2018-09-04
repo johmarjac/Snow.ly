@@ -11,6 +11,7 @@
 |
 */
 
+//Replace with your own domain!
 Route::domain('admin.snowly.dev')->group(function()
 {
     Route::get('/', 'AdminPageController@index');

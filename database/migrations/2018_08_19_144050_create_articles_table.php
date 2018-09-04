@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
             $table->string('description');
             $table->string('tags');
             $table->string('thumbnail');
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->timestamps();
         });
     }

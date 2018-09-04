@@ -4,8 +4,7 @@
 <br>
 <div class="alert alert-info" role="alert">
     <h3>Welcome!</h3>
-    <p>This admin panel will help you to maintain your website, configure every aspect of it and add or manage
-    existing content.</p>
+    <p>This is your admin panel. You can adjust settings and manage content from here.</p>
 </div>
 <hr>
 

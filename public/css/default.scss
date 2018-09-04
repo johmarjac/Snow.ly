@@ -288,6 +288,14 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         border-right: 1px dotted $gray;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        > span > a > span
+        {
+            display: none;
+        }
+    }
 }
 
 #error-page
@@ -471,6 +479,18 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     align-items: center;
     padding: 32px 20vw;
     font-family: $fontAlt;
+
+    @media screen and (max-width: 1350px)
+    {
+        border-bottom: 1px solid lighten($gray, 70%);
+        padding: 32px;
+        flex-direction: column;
+
+        > *
+        {
+            width: 100%;
+        }
+    }
 }
 
 #nav-logo
@@ -480,6 +500,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     font-size: $fontSize * 1.5;
     line-height: $fontSize * 1.5;
     font-weight: 300;
+
+    @media screen and (max-width: 1350px)
+    {
+        justify-content: center;
+        margin: 0 auto;
+    }
 }
 
 #nav-search
@@ -491,6 +517,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
     > form
     {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1350px)
+    {
+        margin: 16px 0 0 0;
         width: 100%;
     }
 }
@@ -505,12 +537,33 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         margin-left: 32px;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        margin-top: 16px;
+        justify-content: space-around;
+
+        > span
+        {
+            margin: 0;
+        }
+
+        > span > a > span
+        {
+            display: none;
+        }
+    }
 }
 
 #content
 {
     flex-grow: 1;
     padding: 24px 20vw;
+
+    @media screen and (max-width: 1350px)
+    {
+        padding: 16px;
+    }
 }
 
 #footer
@@ -529,11 +582,21 @@ input[type='button'], input[type='submit'], button, button[type='submit']
             color: darken($gray, 50%);
         }
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        border-top: 1px solid lighten($gray, 70%);
+    }
 }
 
 #about
 {
     display: flex;
+
+    @media screen and (max-width: 1350px)
+    {
+        flex-direction: column-reverse;
+    }
 }
 
 #about-container
@@ -579,6 +642,13 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         margin-top: 16px;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        border-top: none;
+        border-right: 1px solid lighten($gray, 70%);
+        border-top-left-radius: 0;
+    }
 }
 
 #about-menu
@@ -593,6 +663,14 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border-radius: 3px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+
+    @media screen and (max-width: 1350px)
+    {
+        border-bottom: 1px solid lighten($gray, 78%);
+        border-left: 1px solid lighten($gray, 70%);
+        border-top-left-radius: 3px;
+        border-bottom-right-radius: 0;
+    }
 }
 
 #about-content
@@ -604,6 +682,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border-top: 1px solid lighten($gray, 78%);
     border-right: none;
     border-bottom-left-radius: 3px;
+
+    @media screen and (max-width: 1350px)
+    {
+        border-right: 1px solid lighten($gray, 70%);
+        border-bottom-right-radius: 3px;
+    }
 }
 
 #projects
@@ -621,15 +705,26 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         margin-right: 16px;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        flex-direction: column;
+    }
 }
 
 .project
 {
+    min-width: 250px;
     width: calc(25% - 12px);
     display: flex;
     flex-direction: column;
     border: 1px solid lighten($gray, 70%);
     border-left: 4px solid lighten($gray, 70%);
+
+    @media screen and (max-width: 1350px)
+    {
+        width: 100%;
+    }
 }
 
 .project-header
@@ -717,6 +812,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         margin-right: 16px;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        flex-direction: column;
+    }
 }
 
 .article
@@ -725,6 +825,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     flex-direction: column;
     width: calc(25% - 12px);
     height: 356px;
+
+    @media screen and (max-width: 1350px)
+    {
+        width: 100%;
+    }
 }
 
 .article-header
@@ -786,6 +891,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 #article-show
 {
     display: flex;
+
+    @media screen and (max-width: 1350px)
+    {
+        flex-direction: column-reverse;
+    }
 }
 
 #article-show-container
@@ -815,6 +925,13 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    @media screen and (max-width: 1350px)
+    {
+        border-top: none;
+        border-top-left-radius: 0;
+        border-right: 1px solid lighten($gray, 70%);
     }
 }
 
@@ -849,6 +966,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         max-width: 100%;
         object-fit: contain;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        border-right: 1px solid lighten($gray, 70%);
+    }
 }
 
 #article-show-footer
@@ -860,6 +982,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border-top: 1px solid lighten($gray, 78%);
     border-right: none;
     border-bottom-left-radius: 3px;
+
+    @media screen and (max-width: 1350px)
+    {
+        border-right: 1px solid lighten($gray, 70%);
+        border-bottom-right-radius: 3px;
+    }
 }
 
 #article-show-footer-date
@@ -907,6 +1035,14 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         margin-top: 16px;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        border-left: 1px solid lighten($gray, 70%);
+        border-bottom: 1px solid lighten($gray, 78%);
+        border-top-left-radius: 3px;
+        border-bottom-right-radius: 0;
+    }
 }
 
 #article-show-menu-image
@@ -944,11 +1080,21 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     {
         margin-top: 8px;
     }
+
+    @media screen and (max-width: 1350px)
+    {
+        padding: 16px;
+    }
 }
 
 #blog
 {
     display: flex;
+
+    @media screen and (max-width: 1350px)
+    {
+        flex-direction: column-reverse;
+    }
 }
 
 #blog-sidepanel
@@ -965,6 +1111,13 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     > *:not(:last-child)
     {
         margin-bottom: 8px;
+    }
+
+    @media screen and (max-width: 1350px)
+    {
+        border: none;
+        margin: 0 0 16px 0;
+        padding: 0;
     }
 }
 
