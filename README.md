@@ -26,6 +26,15 @@ I haven't setup a proper environment for the preview, but here's a pack of scree
 ![](https://i.imgur.com/Y200TWx.jpg)
 ![](https://i.imgur.com/tIb1oyJ.jpg)
 
+## Setup
+
+- Install Laravel
+- Follow steps of 'creating a new project with Laravel'
+- Download source of this website and paste files to the newly created project
+- Edit routes/web.php and replace: admin.snowly.dev with admin.mydomain.com
+- Go to url: admin.mydomain.com and log in using admin/snow.ly credidentials
+- Voi'la, the rest is self-explanatory!
+
 ## Known bugs
 
 - HTML Editor's preview doesn't have style applied to it properly - it's caused by Vue.js scoping system and will be fixed soon.
