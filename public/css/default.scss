@@ -683,6 +683,29 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border-right: none;
     border-bottom-left-radius: 3px;
 
+    > h3, > h4
+    {
+        margin-left: -1px;
+        margin-bottom: 8px;
+    }
+
+    > p:not(:last-child)
+    {
+        margin-bottom: 16px;
+    }
+
+    > .note
+    {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    > img
+    {
+        max-width: 100%;
+        object-fit: contain;
+    }
+
     @media screen and (max-width: 1350px)
     {
         border-right: 1px solid lighten($gray, 70%);
