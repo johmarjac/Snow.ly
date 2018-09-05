@@ -24,7 +24,9 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //Replace with for loop later
+        if(!\Schema::hasTable('settings'))
+            return;
+
         $settings = DB::table('settings')->get()->first();
         config(['snowly.name' => $settings->name]);
         config(['snowly.user' => $settings->user]);
