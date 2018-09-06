@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Quicksand:300,400,500,700|Inconsolata:400,700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Quicksand:300,400,500,700|Inconsolata:400,700|Source+Code+Pro:400');
 
 //Color palette
 $gray: rgb(36, 39, 43);
@@ -13,6 +13,7 @@ $purple: rgb(120, 61, 204);
 $fontMain: 'Nunito', sans-serif;
 $fontAlt: 'Quicksand', sans-serif;
 $fontTiny: 'Inconsolata', monospace;
+$fontLabel: 'Source Code Pro', monospace;
 $fontSize: 16px;
 
 *
@@ -225,13 +226,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     display: inline-flex;
     align-items: center;
     font-size: 12px;
-    font-family: $fontTiny;
+    font-family: $fontLabel;
     line-height: 12px;
     border-radius: 3px;
     padding: 4px 6px;
-    font-weight: 700;
     border: 1px dotted $gray;
-    color: $gray;
+    color: black;
 }
 
 .note
