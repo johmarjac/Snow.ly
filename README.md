@@ -17,16 +17,26 @@ While the whole system isn't very robust, it was more of a learning experience f
 ## Preview
 I haven't setup a proper environment for the preview, but here's a pack of screenshots:
 
-![](https://i.imgur.com/1ACLfJz.jpg | width=200)
-![](https://i.imgur.com/f2KvpNw.jpg | width=200)
-![](https://i.imgur.com/MZIzZvA.jpg | width=200)
-![](https://i.imgur.com/lBrjkgA.jpg | width=200)
-![](https://i.imgur.com/CeBPmET.jpg | width=200)
-![](https://i.imgur.com/Pr9YKTP.jpg | width=200)
-![](https://i.imgur.com/CuGpUz9.jpg | width=200)
-![](https://i.imgur.com/TeV2ZHX.jpg | width=200)
-![](https://i.imgur.com/Y200TWx.jpg | width=200)
-![](https://i.imgur.com/tIb1oyJ.jpg | width=200)
+![](https://i.imgur.com/1ACLfJz.jpg)
+------
+![](https://i.imgur.com/f2KvpNw.jpg)
+------
+![](https://i.imgur.com/MZIzZvA.jpg)
+------
+![](https://i.imgur.com/lBrjkgA.jpg)
+------
+![](https://i.imgur.com/CeBPmET.jpg)
+------
+![](https://i.imgur.com/Pr9YKTP.jpg)
+------
+![](https://i.imgur.com/CuGpUz9.jpg)
+------
+![](https://i.imgur.com/TeV2ZHX.jpg)
+------
+![](https://i.imgur.com/Y200TWx.jpg)
+------
+![](https://i.imgur.com/tIb1oyJ.jpg)
+------
 
 ## Setup
 
