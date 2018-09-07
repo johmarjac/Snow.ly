@@ -14,6 +14,7 @@
     export default
     {
         props: ['inputname', 'input'],
+
         watch:
         {
             input: function()
@@ -21,10 +22,12 @@
                 this.minput = this.input
             }
         },
+
         mounted()
         {
             this.minput = this.input
         },
+
         data: () =>
         ({
             minput: '',
@@ -107,6 +110,12 @@
                     icon: 'fas fa-fw fa-highlighter',
                     html: '<span class="highlighter"></span>',
                 },
+
+                codeblock:
+                {
+                    icon: 'fas fa-fw fa-code',
+                    html: '<codeblock language="html">Code Here - Remember to escape it first!</codeblock>',
+                }
             }
         }),
     }

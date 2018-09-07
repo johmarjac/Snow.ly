@@ -221,6 +221,15 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     }
 }
 
+.hljs
+{
+    background: lighten($gray, 80%) !important;
+    box-shadow: inset 0px 1px lighten($gray, 55%);
+    border-radius: 3px;
+    border: 1px solid lighten($gray, 75%);
+    border-top: none;
+}
+
 .label
 {
     display: inline-flex;
@@ -249,11 +258,6 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     background: $blue;
     padding: 0 2px;
     color: white;
-}
-
-.code-container
-{
-    background: lighten($gray, 75%);
 }
 
 #landing-container
@@ -967,6 +971,18 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     height: 100%;
     border-left: 1px solid lighten($gray, 70%);
 
+    > pre
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    > pre:not(:last-child)
+    {
+        margin-bottom: 16px;
+    }
+
     > h3, > h4
     {
         margin-left: -1px;
@@ -980,7 +996,6 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
     > .note
     {
-        margin-top: 8px;
         margin-bottom: 8px;
     }
 
@@ -1198,6 +1213,18 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     display: flex;
     flex-direction: column;
     padding: 16px;
+
+    > pre
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    > pre:not(:last-child)
+    {
+        margin-bottom: 16px;
+    }
 
     > h3, > h4
     {
