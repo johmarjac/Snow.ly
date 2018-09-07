@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6
 
 h4, h5, h6
 {
-    font-weight: 400;
+    font-weight: 700;
 }
 
 h1
@@ -115,7 +115,7 @@ h6
 li
 {
     font-size: 14px;
-    line-height: 1;
+    line-height: 1.25;
 }
 
 ul
@@ -989,6 +989,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     padding: 16px;
     height: 100%;
     border-left: 1px solid lighten($gray, 70%);
+
+    > ul, ol
+    {
+        margin-bottom: 8px;
+    }
 
     > pre
     {
