@@ -12,11 +12,13 @@ While the whole system isn't very robust, it was more of a learning experience f
 - Premade pages, out of which all but 'contact page' can be hidden entirely.
 - Responsive design that'll work on all (99%) devices.
 - Modern design, highly intuitional and effective.
+- Premade elements like: codeblock that allows you to display code with proper syntax highlighting
 
 ## Preview
 I haven't setup a proper environment for the preview, but here's a pack of screenshots:
 
 ![](https://i.imgur.com/1ACLfJz.jpg)
+![](https://i.imgur.com/f2KvpNw.jpg)
 ![](https://i.imgur.com/MZIzZvA.jpg)
 ![](https://i.imgur.com/lBrjkgA.jpg)
 ![](https://i.imgur.com/CeBPmET.jpg)
