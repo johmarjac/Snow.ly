@@ -293,7 +293,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         border-right: 1px dotted $gray;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         > span > a > span
         {
@@ -484,7 +484,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     padding: 32px 20vw;
     font-family: $fontAlt;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-bottom: 1px solid lighten($gray, 70%);
         padding: 32px;
@@ -505,7 +505,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     line-height: $fontSize * 1.5;
     font-weight: 300;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         justify-content: center;
         margin: 0 auto;
@@ -514,20 +514,23 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
 #nav-search
 {
-    width: 250px;
+    min-width: 150px;
+    max-width: 250px;
     overflow: hidden;
     display: flex;
     margin-left: auto;
+    padding-left: 16px;
 
     > form
     {
         width: 100%;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         margin: 16px 0 0 0;
         width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -540,9 +543,10 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     > span
     {
         margin-left: 32px;
+        white-space: nowrap;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         margin-top: 16px;
         justify-content: space-around;
@@ -564,7 +568,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     flex-grow: 1;
     padding: 24px 20vw;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         padding: 16px;
     }
@@ -587,7 +591,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         }
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-top: 1px solid lighten($gray, 70%);
     }
@@ -597,7 +601,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 {
     display: flex;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         flex-direction: column-reverse;
     }
@@ -647,7 +651,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         margin-top: 16px;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-top: none;
         border-right: 1px solid lighten($gray, 70%);
@@ -668,7 +672,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-bottom: 1px solid lighten($gray, 78%);
         border-left: 1px solid lighten($gray, 70%);
@@ -725,7 +729,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         object-fit: contain;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-right: 1px solid lighten($gray, 70%);
         border-bottom-right-radius: 3px;
@@ -748,7 +752,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         margin-right: 16px;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         flex-direction: column;
     }
@@ -763,7 +767,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border: 1px solid lighten($gray, 70%);
     border-left: 4px solid lighten($gray, 70%);
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         width: 100%;
     }
@@ -855,7 +859,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         margin-right: 16px;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         flex-direction: column;
     }
@@ -865,10 +869,10 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 {
     display: flex;
     flex-direction: column;
-    width: calc(25% - 12px);
+    width: 280px;
     height: 356px;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         width: 100%;
     }
@@ -934,7 +938,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 {
     display: flex;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         flex-direction: column-reverse;
     }
@@ -969,7 +973,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         text-overflow: ellipsis;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-top: none;
         border-top-left-radius: 0;
@@ -1024,7 +1028,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         object-fit: contain;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-right: 1px solid lighten($gray, 70%);
     }
@@ -1040,10 +1044,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     border-right: none;
     border-bottom-left-radius: 3px;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-right: 1px solid lighten($gray, 70%);
         border-bottom-right-radius: 3px;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -1060,6 +1066,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         line-height: 12px;
         margin-left: 4px;
     }
+
+    @media screen and (max-width: 800px)
+    {
+        margin-bottom: 16px;
+    }
 }
 
 #article-show-footer-tags
@@ -1072,6 +1083,23 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     > .tag
     {
         margin-left: 4px;
+    }
+
+    @media screen and (max-width: 800px)
+    {
+        flex-direction: row;
+        margin-left: 0;
+
+        > .tag
+        {
+            margin-top: 4px;
+            margin-left: 0;
+        }
+
+        > .tag:not(:last-child)
+        {
+            margin-right: 4px;
+        }
     }
 }
 
@@ -1090,10 +1118,12 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 
     > #header-menu
     {
+        position: sticky;
+        top: 16px;
         margin-top: 16px;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border-left: 1px solid lighten($gray, 70%);
         border-bottom: 1px solid lighten($gray, 78%);
@@ -1138,7 +1168,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         margin-top: 8px;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         padding: 16px;
     }
@@ -1148,7 +1178,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
 {
     display: flex;
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         flex-direction: column-reverse;
     }
@@ -1170,7 +1200,7 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         margin-bottom: 8px;
     }
 
-    @media screen and (max-width: 1350px)
+    @media screen and (max-width: 800px)
     {
         border: none;
         margin: 0 0 16px 0;
@@ -1278,6 +1308,14 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     align-items: center;
     padding: 16px;
     border-top: 1px solid lighten($gray, 78%);
+
+    @media screen and (max-width: 800px)
+    {
+        border-right: 1px solid lighten($gray, 70%);
+        border-bottom-right-radius: 3px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .post-footer-date
@@ -1293,6 +1331,11 @@ input[type='button'], input[type='submit'], button, button[type='submit']
         line-height: 12px;
         margin-left: 4px;
     }
+
+    @media screen and (max-width: 800px)
+    {
+        margin-bottom: 16px;
+    }
 }
 
 .post-footer-tags
@@ -1305,6 +1348,23 @@ input[type='button'], input[type='submit'], button, button[type='submit']
     > .tag
     {
         margin-left: 4px;
+    }
+
+    @media screen and (max-width: 800px)
+    {
+        flex-direction: row;
+        margin-left: 0;
+
+        > .tag
+        {
+            margin-top: 4px;
+            margin-left: 0;
+        }
+
+        > .tag:not(:last-child)
+        {
+            margin-right: 4px;
+        }
     }
 }
 
