@@ -6,7 +6,7 @@
             </div>
             <textarea rows="16" v-model="minput" :name="inputname"></textarea>
         </div>
-        <div class="htmleditor-output" v-html="minput"></div>
+        <iframe class="htmleditor-output" :srcdoc="srcdoc"></iframe>
     </div>
 </template>
 
@@ -20,17 +20,24 @@
             input: function()
             {
                 this.minput = this.input
+            },
+
+            minput: function()
+            {
+                this.srcdoc = "<style>@import url('css/default.min.css')</style>" + this.minput
             }
         },
 
         mounted()
         {
-            this.minput = this.input
+            this.minput = this.input || ''
+            this.srcdoc = this.minput || ''
         },
 
         data: () =>
         ({
             minput: '',
+            srcdoc: '',
             toolbar:
             {
                 bold:
@@ -121,6 +128,7 @@
     }
 </script>
 
+
 <style scoped>
     @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
 
@@ -173,21 +181,30 @@
     .htmleditor-input > textarea
     {
         height: 100%;
+        resize: none;
+        width: 100%;
+        font-family: "Nunito",sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        min-width: 0;
+        color: #24272b;
+        border: 1px solid #beceee;
+        border-radius: 3px;
+        padding: 8px;
     }
 
     .htmleditor-output
     {
-        background: rgb(255, 255, 255);
-        border: 1px solid rgb(206, 212, 218);
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 40%;
-        padding: 4px;
         overflow: auto;
         white-space: normal;
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(206, 212, 218);
+        display: flex;
+        padding: 4px;
     }
 </style>
-
-<style scoped src="../../../../public/css/default.min.css" />
