@@ -5,12 +5,12 @@
     <div id="about-container">
         <div id="about-header">
             <div>
-                <img src="{{ config('snowly.avatar_url') }}">
+                <img src="{{ $settings->avatar_url }}">
             </div>
-            <span>{!! config('snowly.name') !!}</span>
+            <span>{!! $settings->name !!}</span>
         </div>
         <div id="about-content">
-            {!! config('snowly.about_content') !!}
+            {!! $settings->about_content !!}
         </div>
     </div>
     <div id="about-menu" class="vue">

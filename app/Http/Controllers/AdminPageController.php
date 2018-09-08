@@ -25,6 +25,8 @@ class AdminPageController extends Controller
             'avatar' => 'image'
         ]);
 
+        $settings = DB::table('settings')->get()->first();
+
         $avatar_url = '/storage/content/avatar.png';
 
         if($request->hasFile('avatar'))
@@ -32,8 +34,9 @@ class AdminPageController extends Controller
 
         if($request->use_github_avatar)
         {
+
             $curl = curl_init();
-            curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . config('snowly.github_username'));
+            curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . $settings->github_username);
             curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
             curl_setopt($curl, CURLOPT_USERAGENT, 'Snowly');
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -55,7 +58,7 @@ class AdminPageController extends Controller
             'github_username' => $request->github_username,
             'theme' => $request->theme ?? '',
             'page_name' => $request->page_name,
-            'avatar_url' => $avatar_url ?? config('snowly.avatar_url'),
+            'avatar_url' => $avatar_url ?? $settings->avatar_url,
             'hidden_sections' => implode(',',
             [
                 $request->hiddensection_blog == 'on' ? 'blog' : '',

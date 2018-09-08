@@ -6,6 +6,7 @@ use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -17,7 +18,9 @@ class PostController extends Controller
 
     public function index($order = null, $by = null)
     {
-        if(config('snowly.hidden_sections.blog'))
+        $settings = DB::table('settings')->get()->first();
+
+        if(isset($settings->hidden_sections['blog']))
             abort(404);
 
         $order = $order ?? 'descending';

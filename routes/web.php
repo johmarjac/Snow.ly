@@ -41,9 +41,8 @@ Route::view('/', 'pages/landing');
 Route::view('contact', 'pages/contact');
 Route::get('about', function()
 {
-    //Error 402 here
-    if(config('snowly.hidden_sections.about'))
-        return;
+    if(isset($settings->hidden_sections['about']))
+        abort(402);
 
     return view('pages/about');
 });

@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $settings = DB::table('settings')->get()->first();
+
+        if($settings)
+        {        
+            $sections = array();
+            foreach (explode(',', $settings->hidden_sections) as $section)
+            {
+                $sections[$section] = true;
+            }
+
+            $settings->hidden_sections = $sections;
+
+            View::share('settings', $settings);
+        }
     }
 
     /**

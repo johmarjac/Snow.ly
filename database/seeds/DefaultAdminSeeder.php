@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DefaultAdminSeeder extends Seeder
 {
@@ -11,12 +12,12 @@ class DefaultAdminSeeder extends Seeder
      */
     public function run()
     {
-        \Illuminate\Support\Facades\DB::table('settings')->insert([
+        DB::table('settings')->insert(
+        [
             'name' => 'Bob Snowlyski',
             'user' => config('snowly.admin.name'),
             'password' => \Illuminate\Support\Facades\Hash::make(config('snowly.admin.pass')),
             'about_content' => static::getDefaultAboutContent(),
-
         ]);
     }
 
