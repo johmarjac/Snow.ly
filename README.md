@@ -40,12 +40,23 @@ I haven't setup a proper environment for the preview, but here's a pack of scree
 
 ## Setup
 
-- Install Laravel
-- Follow steps of 'creating a new project with Laravel'
-- Download source of this website and paste files to the newly created project
-- Edit routes/web.php and replace: admin.snowly.dev with admin.mydomain.com
-- Go to url: admin.mydomain.com and log in using admin/snow.ly credidentials
-- Voi'la, the rest is self-explanatory!
+* Clone the repository locally  
+`git clone https://github.com/jonekcode/Snow.ly`
+
+* Install required dependencies via composer  
+`composer install`
+
+* Generate a Laravel encryption key and your own `.env` file  
+`php artisan key:generate`  
+`cp .env.example .env`
+
+* Configure your own database connection in the `.env` file
+
+* (Optional) Change Snow.ly specific `.env` parameters  
+  * If the application will run as localhost, change __SNOWLY_ADMIN_DOMAIN__ to __admin.localhost__  
+  
+* Start the server and login as admin/admin by default  
+`php artisan serve`
 
 ## Known bugs
 
