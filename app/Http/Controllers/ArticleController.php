@@ -19,7 +19,9 @@ class ArticleController extends Controller
 
     public function index($order = 'descending', $by = 'date', $filter = 'none')
     {
-        if(config('snowly.hidden_sections.articles'))
+        $settings = DB::table('settings')->get()->first();
+
+        if(isset($settings->hidden_sections['articles']))
             abort(404);
 
         $articles = Article::all()->each(function($i, $k)

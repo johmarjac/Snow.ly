@@ -16,7 +16,9 @@ class ProjectController extends Controller
 
     public function index()
     {
-        if(config('snowly.hidden_sections.projects'))
+        $settings = DB::table('settings')->get()->first();
+
+        if(isset($settings->hidden_sections['projects']))
             abort(404);
 
         return view('pages/projects')->with(['projects' => Project::all()->sortByDesc('stars')]);
@@ -66,8 +68,10 @@ class ProjectController extends Controller
         if(!session('admin'))
             abort(403);
 
+        $settings = DB::table('settings')->get()->first();
+
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . config('snowly.github_username') . '/repos');
+        curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . $settings->github_username . '/repos');
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($curl, CURLOPT_USERAGENT, 'Snowly');
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);

@@ -12,7 +12,7 @@
 */
 
 //Replace with your own domain!
-Route::domain('admin.snowly.dev')->group(function()
+Route::domain(config('snowly.admin.domain'))->group(function()
 {
     Route::get('/', 'AdminPageController@index');
     Route::post('/signin', 'AdminPageController@signin');
@@ -41,9 +41,8 @@ Route::view('/', 'pages/landing');
 Route::view('contact', 'pages/contact');
 Route::get('about', function()
 {
-    //Error 402 here
-    if(config('snowly.hidden_sections.about'))
-        return;
+    if(isset($settings->hidden_sections['about']))
+        abort(402);
 
     return view('pages/about');
 });

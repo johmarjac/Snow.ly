@@ -194,7 +194,7 @@
         <hr>
         <form action="/about/update" method="POST">
             @csrf
-            <html-editor inputname="content" input="{{ config('snowly.about_content') }}"></html-editor>
+            <html-editor inputname="content" input="{{ $settings->about_content }}"></html-editor>
             <button class="btn btn-success btn-block">Submit</button>
         </form>
     </div>
@@ -207,7 +207,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>
                 </div>
-                <input type="text" name="page_name" class="form-control" value="{{ config('snowly.page_name') }}">
+                <input type="text" name="page_name" class="form-control" value="{{ $settings->page_name }}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -220,19 +220,19 @@
             <span>Hide sections:</span>
             <div class="row container mb-3">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.blog') ? 'checked' : '' }} name="hiddensection_blog" id="settings-check-hiddensection-blog">
+                    <input type="checkbox" class="custom-control-input" {{ isset($settings->hidden_sections['blog']) ? 'checked' : '' }} name="hiddensection_blog" id="settings-check-hiddensection-blog">
                     <label class="custom-control-label" for="settings-check-hiddensection-blog">Blog</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.articles') ? 'checked' : '' }} name="hiddensection_articles" id="settings-check-hiddensection-articles">
+                    <input type="checkbox" class="custom-control-input" {{ isset($settings->hidden_sections['articles']) ? 'checked' : '' }} name="hiddensection_articles" id="settings-check-hiddensection-articles">
                     <label class="custom-control-label" for="settings-check-hiddensection-articles">Articles</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.projects') ? 'checked' : '' }} name="hiddensection_projects" id="settings-check-hiddensection-projects">
+                    <input type="checkbox" class="custom-control-input" {{ isset($settings->hidden_sections['projects']) ? 'checked' : '' }} name="hiddensection_projects" id="settings-check-hiddensection-projects">
                     <label class="custom-control-label" for="settings-check-hiddensection-projects">Projects</label>
                 </div>
                 <div class="custom-control custom-checkbox ml-3">
-                    <input type="checkbox" class="custom-control-input" {{ config('snowly.hidden_sections.about') ? 'checked' : '' }} name="hiddensection_about" id="settings-check-hiddensection-about">
+                    <input type="checkbox" class="custom-control-input" {{ isset($settings->hidden_sections['about']) ? 'checked' : '' }} name="hiddensection_about" id="settings-check-hiddensection-about">
                     <label class="custom-control-label" for="settings-check-hiddensection-about">About</label>
                 </div>
             </div>
@@ -242,13 +242,13 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>
                 </div>
-                <input type="text" name="name" class="form-control" value="{{ config('snowly.name') }}">
+                <input type="text" name="name" class="form-control" value="{{ $settings->name }}">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">User</span>
                 </div>
-                <input type="text" name="user" class="form-control" value="{{ config('snowly.user') }}">
+                <input type="text" name="user" class="form-control" value="{{ $settings->user }}">
                 <div class="input-group-prepend ml-3">
                     <span class="input-group-text">Password</span>
                 </div>
@@ -273,7 +273,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">GitHub Username</span>
                 </div>
-                <input type="text" name="github_username" class="form-control" value="{{ config('snowly.github_username') }}">
+                <input type="text" name="github_username" class="form-control" value="{{ $settings->github_username }}">
             </div>
             <hr>
             <button class="btn btn-success btn-block">Submit</button>
