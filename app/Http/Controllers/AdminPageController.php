@@ -92,7 +92,13 @@ class AdminPageController extends Controller
             'password' => 'required',
         ]);
 
-        if( $request->user == config('snowly.user') && Hash::check( $request->password, config('snowly.password') ) )
+        $setting = DB::table('settings')
+            ->select()
+            ->where('user', $request->user)
+            ->limit(1)
+            ->first();
+
+        if ($setting && Hash::check($request->password, $setting->password))
         {
             session(['admin' => true]);
 
