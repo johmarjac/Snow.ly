@@ -12,7 +12,7 @@
 */
 
 //Replace with your own domain!
-Route::domain('admin.snowly.dev')->group(function()
+Route::domain(config('snowly.admin.domain'))->group(function()
 {
     Route::get('/', 'AdminPageController@index');
     Route::post('/signin', 'AdminPageController@signin');

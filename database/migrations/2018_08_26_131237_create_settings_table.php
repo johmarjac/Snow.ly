@@ -18,7 +18,7 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table)
         {
             $table->string('name')->default('Bob Snowlyski');
-            $table->string('user')->default('admin');
+            $table->string('user')->primary();
             $table->text('password');
             $table->string('github_username')->default('jonekcode');
             $table->string('theme')->default('default.css');
@@ -27,23 +27,6 @@ class CreateSettingsTable extends Migration
             $table->string('hidden_sections')->default('');
             $table->string('avatar_url')->nullable();
         });
-
-        DB::table('settings')->insert(
-        [
-            'password' => Hash::make("snow.ly"),
-            'about_content' =>
-            '<h4>Introduction</h4>
-            <p>-</p>
-            <hr>
-            <h4>Skills</h4>
-            <p>-</p>
-            <hr>
-            <h4>Experience</h4>
-            <p>-</p>
-            <hr>
-            <h4>Personal Details</h4>
-            <p>-</p>'
-        ]);
     }
 
     /**
