@@ -29,6 +29,7 @@ Vue.component('html-editor', require('./components/HTMLEditor.vue'));
 Vue.component('api-bound-container', require('./components/APIBoundContainer.vue'));
 Vue.component('reactive-form', require('./components/ReactiveForm.vue'));
 Vue.component('codeblock', require('./components/HighlightWrapper.vue'));
+Vue.component('html-view', require('./components/HTMLView.vue'));
 
 Vue.config.productionTip = false;
 
