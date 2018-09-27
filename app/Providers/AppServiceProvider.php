@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if(!env('APP_KEY') == null)
+            return false;
+        
         $settings = DB::table('settings')->get()->first();
 
         if($settings)
