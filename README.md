@@ -28,12 +28,11 @@ While the whole system isn't very robust, it was more of a learning experience f
 -   Install required dependencies via composer  
     `composer install`
 
--   Generate a Laravel encryption key and your own `.env` file  
-    `cp .env.example .env`
-
+-   Generate a Laravel encryption key and your own `.env` file
+    `cp .env.example .env`  
     `php artisan key:generate`  
 
--   Configure your own database connection in the `.env` file
+-   Create your own database via mysql and configure the connection in the `.env` file
 
 -   (Optional) Change Snow.ly specific `.env` parameters
 
