@@ -30,6 +30,7 @@ While the whole system isn't very robust, it was more of a learning experience f
 
 -   Generate a Laravel encryption key and your own `.env` file  
     `cp .env.example .env`
+
     `php artisan key:generate`  
 
 -   Configure your own database connection in the `.env` file
