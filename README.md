@@ -29,8 +29,8 @@ While the whole system isn't very robust, it was more of a learning experience f
     `composer install`
 
 -   Generate a Laravel encryption key and your own `.env` file  
-    `php artisan key:generate`  
     `cp .env.example .env`
+    `php artisan key:generate`  
 
 -   Configure your own database connection in the `.env` file
 
