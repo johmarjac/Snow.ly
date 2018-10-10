@@ -32,7 +32,7 @@ class ProjectController extends Controller
         //Clear database first
         DB::table('projects')->truncate();
 		
-		$settings = $settings = DB::table('settings')->get()->first();
+		$settings = DB::table('settings')->get()->first();
 		
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . $settings->github_username . '/repos');
