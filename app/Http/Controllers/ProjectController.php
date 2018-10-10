@@ -31,9 +31,11 @@ class ProjectController extends Controller
 
         //Clear database first
         DB::table('projects')->truncate();
-
+		
+		$settings = $settings = DB::table('settings')->get()->first();
+		
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . config('snowly.github_username') . '/repos');
+        curl_setopt($curl, CURLOPT_URL, 'https://api.github.com/users/' . $settings->github_username . '/repos');
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($curl, CURLOPT_USERAGENT, 'Snowly');
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
